@@ -2,6 +2,7 @@
     <string name="app_name">这个是app的名称</string>
     <string name="button1">确认</string>
     <string name="editText1">名字</string>
+    <string name="button2">跳转</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>

@@ -29,4 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
+    fun tabbar(view: View){
+        startActivity(Intent(this,tabbar::class.java))//跳转去tabbar页面
+    }
 }
