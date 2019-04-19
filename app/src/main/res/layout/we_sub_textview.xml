@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <!-- 设置文字颜色、大小、样式 -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="红色粗体倾斜的TextView"
+            android:textColor="#EA5246"
+            android:textStyle="bold|italic"
+            android:textSize="18sp" />
+
+    <!-- 使用阴影 -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:shadowColor="#F9F900"
+            android:shadowDx="10.0"
+            android:shadowDy="10.0"
+            android:shadowRadius="3.0"
+            android:text="带阴影的TextView"
+            android:textColor="#4A4AFF"
+            android:textSize="30sp" />
+
+    <!-- 带图片 -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:drawableTop="@mipmap/ic_launcher"
+            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableRight="@mipmap/ic_launcher"
+            android:drawableBottom="@mipmap/ic_launcher"
+            android:text="带图片的TextView" />
+
+    <!-- 对邮件、电话、网址增加链接 -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="邮件：cqkxzsxy@163.com\n电话：13052288888\n博客：http://blog.csdn.net/cqkxzsxy"
+            android:autoLink="email|phone|web"/>
+
+    <!-- 实现跑马灯效果 -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:singleLine="true"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="marquee_forever"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:text="实现跑马灯效果的TextView，Android零基础入门到精通系列教程，欢迎关注微信公众号ShareExpert~"/>
+</LinearLayout>

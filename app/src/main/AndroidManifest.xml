@@ -13,6 +13,11 @@
                 android:name=".tabbar"
                 android:label="@string/title_activity_tabbar">
         </activity>
+        <activity android:name=".we_sub" android:label="@string/we_sub_name">
+            <meta-data
+                    android:name="android.support.PARENT_ACTIVITY"
+                    android:value=".MainActivity"/>
+        </activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

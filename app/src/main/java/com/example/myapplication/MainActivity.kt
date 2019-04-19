@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 class MainActivity : AppCompatActivity() {
     object ojbk {
         val ACA = "message"
+        val we_sub = "string"
     }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,12 +25,37 @@ class MainActivity : AppCompatActivity() {
     fun function1():Unit{
         val x = 1
         if (x ==1){
-            textView2.text = this.getString(R.string.app_name)
+
         }else{
 
         }
     }
     fun tabbar(view: View){
         startActivity(Intent(this,tabbar::class.java))//跳转去tabbar页面
+    }
+    fun we_sub_textview(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "textview")
+        startActivity(intent)
+    }
+    fun we_sub_edittext(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "edittext")
+        startActivity(intent)
+    }
+    fun we_sub_button(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "button")
+        startActivity(intent)
+    }
+    fun we_sub_check_radio(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "check_radio")
+        startActivity(intent)
+    }
+    fun we_sub_togglebutton_switch(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "togglebutton_switch")
+        startActivity(intent)
     }
 }
