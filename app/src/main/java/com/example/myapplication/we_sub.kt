@@ -1,16 +1,13 @@
 package com.example.myapplication
+
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
+import android.view.View
 import android.widget.*
 import android.widget.Toast
 import android.widget.CompoundButton
 import android.widget.RadioGroup
-
-
-
-
-
 
 class we_sub : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -109,6 +106,53 @@ class we_sub : AppCompatActivity() {
                         ).show()
                 }
 
+            }
+            "imageview" -> {
+                setContentView(R.layout.we_sub_imageview)
+                setTitle("图片视图展示")
+            }
+            "imagebutton" -> {
+                setContentView(R.layout.we_sub_imagebutton)
+                setTitle("图片按钮展示")
+                val mControlIb = findViewById<ImageButton>(R.id.control_ib)
+                var mFlag = false
+                val mMinusZb = findViewById<ZoomButton>(R.id.minus_zb)
+                val mPlusZb = findViewById<ZoomButton>(R.id.plus_zb)
+                val mControlZc = findViewById<ZoomControls>(R.id.control_zc)
+                mControlIb.setOnClickListener(object : View.OnClickListener {
+                    override fun onClick(view: View) {
+                        // 根据记录的控制状态进行图标切换
+                        if (mFlag) {
+                            Toast.makeText(this@we_sub, "暂停", Toast.LENGTH_SHORT).show()
+                            mControlIb.setImageResource(R.drawable.bh3_2)
+                            mFlag = false
+                        } else {
+                            Toast.makeText(this@we_sub, "快进", Toast.LENGTH_SHORT).show()
+                            mControlIb.setImageResource(R.drawable.bh3_3)
+                            mFlag = true
+                        }
+                    }
+                })
+                // 为缩小按钮绑定OnClickListener监听器
+                mMinusZb.setOnClickListener { Toast.makeText(this, "缩小", Toast.LENGTH_SHORT).show() }
+                // 为放大按钮绑定OnClickListener监听器
+                mPlusZb.setOnClickListener { Toast.makeText(this, "放大", Toast.LENGTH_SHORT).show() }
+                // 为缩放组件绑定OnZoomInClickListener监听器
+                mControlZc.setOnZoomInClickListener {
+                    Toast.makeText(this, "放大", Toast.LENGTH_SHORT).show()
+                }
+                // 为缩放组件绑定OnZoomOutClickListener监听器
+                mControlZc.setOnZoomOutClickListener {
+                    Toast.makeText(this, "缩小", Toast.LENGTH_SHORT).show()
+                }
+            }
+            "customview" -> {
+                setContentView(R.layout.we_sub_customview)
+                setTitle("自定义view展示")
+            }
+            "linearlayout" -> {
+                setContentView(R.layout.we_sub_linearlayout)
+                setTitle("线性布局展示")
             }
             else ->{
             }

@@ -58,4 +58,24 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub, "togglebutton_switch")
         startActivity(intent)
     }
+    fun we_sub_imageview(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "imageview")
+        startActivity(intent)
+    }
+    fun we_sub_imagebutton(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "imagebutton")
+        startActivity(intent)
+    }
+    fun we_sub_customview(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "customview")
+        startActivity(intent)
+    }
+    fun we_sub_linearlayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "linearlayout")
+        startActivity(intent)
+    }
 }
