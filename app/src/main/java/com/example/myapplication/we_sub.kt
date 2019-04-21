@@ -154,6 +154,46 @@ class we_sub : AppCompatActivity() {
                 setContentView(R.layout.we_sub_linearlayout)
                 setTitle("线性布局展示")
             }
+            "gravity_layout_gravity" -> {
+                setContentView(R.layout.we_sub_gravity_layout_gravity)
+                setTitle("布局重心展示")
+            }
+            "padding_margin" -> {
+                setContentView(R.layout.we_sub_padding_margin)
+                setTitle("padding&margin展示")
+            }
+            "relativelayout" -> {
+                setContentView(R.layout.we_sub_relativelayout)
+                setTitle("相对布局展示")
+            }
+            "tablelayout" -> {
+                setContentView(R.layout.we_sub_tablelayout)
+                setTitle("表格布局展示")
+            }
+            "framelayout" -> {
+                setContentView(R.layout.we_sub_framelayout)
+                setTitle("帧布局展示")
+            }
+            "absolutelayout" -> {
+                setContentView(R.layout.we_sub_absolutelayout)
+                setTitle("绝对布局展示")
+            }
+            "gridlayout" -> {
+                setContentView(R.layout.we_sub_gridlayout)
+                setTitle("网格布局展示")
+            }
+            "33" -> {
+                setContentView(R.layout.we_sub_33)
+                setTitle("Android事件展示")
+                val button = findViewById<Button>(R.id.button)
+                button.setOnClickListener {
+                    Toast.makeText(
+                        this,
+                        "触发了点击事件",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
             else ->{
             }
         }

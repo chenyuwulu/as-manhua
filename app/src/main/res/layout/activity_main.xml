@@ -95,4 +95,60 @@
             android:id="@+id/button11" android:layout_marginTop="8dp"
             app:layout_constraintTop_toBottomOf="@+id/button8" app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="8dp" android:onClick="we_sub_linearlayout"/>
+    <Button
+            android:text="@string/button12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button9" app:layout_constraintStart_toEndOf="@+id/button11"
+            android:layout_marginStart="8dp" android:onClick="we_sub_gravity_layout_gravity"/>
+    <Button
+            android:text="@string/button13"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button12" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button10" app:layout_constraintStart_toEndOf="@+id/button"
+            android:layout_marginStart="8dp" android:onClick="we_sub_padding_margin"/>
+    <Button
+            android:text="@string/button14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button13" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button11" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:onClick="we_sub_relativelayout"/>
+    <Button
+            android:text="@string/button15"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button14" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button" app:layout_constraintStart_toEndOf="@+id/button13"
+            android:layout_marginStart="8dp" android:onClick="we_sub_tablelayout"/>
+    <Button
+            android:text="@string/button16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button15" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button12" app:layout_constraintStart_toEndOf="@+id/button14"
+            android:layout_marginStart="8dp" android:onClick="we_sub_framelayout"/>
+    <Button
+            android:text="@string/button17"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button16" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button13" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="8dp" android:onClick="we_sub_absolutelayout"/>
+    <Button
+            android:text="@string/button18"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button17" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button14" app:layout_constraintStart_toEndOf="@+id/button16"
+            android:layout_marginStart="8dp" android:onClick="we_sub_gridlayout"/>
+    <Button
+            android:text="@string/button19"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/button18" android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@+id/button15" app:layout_constraintStart_toEndOf="@+id/button17"
+            android:layout_marginStart="8dp" android:onClick="we_sub_33"/>
 </android.support.constraint.ConstraintLayout>

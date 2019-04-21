@@ -78,4 +78,44 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub, "linearlayout")
         startActivity(intent)
     }
+    fun we_sub_gravity_layout_gravity(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "gravity_layout_gravity")
+        startActivity(intent)
+    }
+    fun we_sub_padding_margin(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "padding_margin")
+        startActivity(intent)
+    }
+    fun we_sub_relativelayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "relativelayout")
+        startActivity(intent)
+    }
+    fun we_sub_tablelayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "tablelayout")
+        startActivity(intent)
+    }
+    fun we_sub_framelayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "framelayout")
+        startActivity(intent)
+    }
+    fun we_sub_absolutelayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "absolutelayout")
+        startActivity(intent)
+    }
+    fun we_sub_gridlayout(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "gridlayout")
+        startActivity(intent)
+    }
+    fun we_sub_33(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "33")
+        startActivity(intent)
+    }
 }

@@ -13,9 +13,14 @@
     <string name="button9">图片按钮</string>
     <string name="button10">自定义view</string>
     <string name="button11">线性布局</string>
-    <string name="button12">layout_gravity</string>
+    <string name="button12">布局重心</string>
     <string name="button13">padding和margin</string>
     <string name="button14">相对布局</string>
+    <string name="button15">表格布局</string>
+    <string name="button16">帧布局</string>\
+    <string name="button17">绝对布局</string>
+    <string name="button18">网格布局</string>
+    <string name="button19">Android事件</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">标题左</string>
     <string name="title_dashboard">标题中</string>
