@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -8,6 +9,12 @@ import android.widget.*
 import android.widget.Toast
 import android.widget.CompoundButton
 import android.widget.RadioGroup
+import android.widget.TextView
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
+
+
+
 
 class we_sub : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -194,8 +201,246 @@ class we_sub : AppCompatActivity() {
                     ).show()
                 }
             }
+            "34"->{
+                setContentView(R.layout.we_sub_34)
+                setTitle("Android事件监听展示")
+            }
+            "35"->{
+                setContentView(R.layout.we_sub_35)
+                setTitle("Android回调事件展示")
+            }
+            "36"->{
+                setContentView(R.layout.we_sub_36)
+                setTitle("Android系统事件展示")
+                val configurationTv = findViewById(R.id.configuration_tv) as TextView
+
+                // 获取系统的Configuration对象
+                val cfg = resources.configuration
+
+                // 获取系统的配置信息
+                val status = StringBuffer()
+                status.append("屏幕密度：" + cfg.densityDpi + "\n")
+                status.append("字体缩放因子：" + cfg.fontScale + "\n")
+                status.append("硬键盘是否可见：" + cfg.hardKeyboardHidden + "\n")
+                status.append("键盘类型：" + cfg.keyboard + "\n")
+                status.append("当前键盘是否可用：" + cfg.keyboardHidden + "\n")
+                status.append("语言环境：" + cfg.locale + "\n")
+                status.append("移动信号的国家码：" + cfg.mcc + "\n")
+                status.append("移动信号的网络码：" + cfg.mnc + "\n")
+                status.append("方向导航设备的类型：" + cfg.navigation + "\n")
+                status.append("方向导航设备是否可用：" + cfg.navigationHidden + "\n")
+                status.append("系统屏幕的方向：" + cfg.orientation + "\n")
+                status.append("屏幕可用高：" + cfg.screenHeightDp + "\n")
+                status.append("屏幕可用宽：" + cfg.screenWidthDp + "\n")
+                status.append("系统触摸屏的触摸方式：" + cfg.touchscreen + "\n")
+                status.append("screenLayout：" + cfg.screenLayout + "\n")
+                status.append("smallestScreenWidthDp：" + cfg.smallestScreenWidthDp + "\n")
+                status.append("uiMode：" + cfg.uiMode + "\n")
+
+                // 配置信息输出
+                configurationTv.text = status.toString()
+
+
+            }
+            "listview"->{
+                setContentView(R.layout.we_sub_listview)
+                setTitle("listview展示")
+            }
+            "adapter"->{
+                setContentView(R.layout.we_sub_adapter)
+                setTitle("adapter展示")
+                // 获取界面ListView组件
+                val listView = findViewById(R.id.listview) as ListView
+
+                // 定义一个数组
+                val books = arrayOf(
+                    "初识Android开发",
+                    "Android初级开发",
+                    "Android中级开发",
+                    "Android高级开发",
+                    "Android开发进阶",
+                    "Android项目实战",
+                    "Android企业级开发",
+                    "初识Android开发",
+                    "Android初级开发",
+                    "Android中级开发",
+                    "Android高级开发",
+                    "Android开发进阶",
+                    "Android项目实战",
+                    "Android企业级开发",
+                    "初识Android开发",
+                    "Android初级开发",
+                    "Android中级开发",
+                    "Android高级开发",
+                    "Android开发进阶",
+                    "Android项目实战",
+                    "Android企业级开发",
+                    "初识Android开发",
+                    "Android初级开发",
+                    "Android中级开发",
+                    "Android高级开发",
+                    "Android开发进阶",
+                    "Android项目实战",
+                    "Android企业级开发"
+                )
+                // 将数组包装成ArrayAdapter
+                val adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_list_item_1, books
+                )
+
+                // 为ListView设置Adapter
+                listView.adapter = adapter
+
+                // 为ListView绑定列表项点击事件监听器
+                listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
+                    Toast.makeText(
+                        this,
+                        "点击了" + books[position],
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
+            "listactivity"->{
+                setContentView(R.layout.we_sub_listactivity)
+                setTitle("listactivity监听展示")
+                // 获取界面ListView组件
+                val listView = findViewById(R.id.listview) as ListView
+
+                // 定义一个List集合
+                val components = ArrayList<String>()
+                components.add("TextView")
+                components.add("EditText")
+                components.add("Button")
+                components.add("CheckBox")
+                components.add("RadioButton")
+                components.add("ToggleButton")
+                components.add("ImageView")
+
+                // 将List包装成ArrayAdapter
+                val adapter = ArrayAdapter<String>(
+                    this,
+                    R.layout.we_sub_listactivity_custom, R.id.content_tv, components
+                )
+
+                // 为ListView设置Adapter
+                listView.adapter = adapter
+
+                // 为ListView列表项绑定点击事件监听器
+                listView.onItemClickListener = AdapterView.OnItemClickListener { adapterView, view, position, id ->
+                    Toast.makeText(
+                        this@we_sub,
+                        components.get(position),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
+            "arrayadapter"->{
+                setContentView(R.layout.we_sub_arrayadapter)
+                setTitle("arrayadapter展示")
+                // 获取界面组件
+                val listView = findViewById<ListView>(R.id.listview)
+
+                // 定义要显示的数组
+                val contents = arrayOf("Android", "demo", "Edit", "APP", "excel", "dota", "Button", "Circle", "excel", "back")
+
+                // 将数组包装为自定义MyArrayAdapter
+                val adapter = MyArrayAdapter(this, R.layout.we_sub_arrayadapter_custom_item, contents)
+
+                // 为ListView设置Adapter
+                listView.adapter = adapter
+
+            }
+            "simpleadapter"->{
+                setContentView(R.layout.we_sub_simpleadapter)
+                setTitle("simpleadapter展示")
+                fun getData(): List<Map<String, Any>> {
+                    val list = ArrayList<Map<String, Any>>()
+                    var map: MutableMap<String, Any> = HashMap()
+                    map["img"] = R.drawable.bh3_1
+                    map["title"] = "小宗"
+                    map["info"] = "电台DJ"
+                    list.add(map)
+
+                    map = HashMap()
+                    map["img"] = R.drawable.bh3_2
+                    map["title"] = "貂蝉"
+                    map["info"] = "四大美女"
+                    list.add(map)
+
+                    map = HashMap()
+                    map["img"] = R.drawable.bh3_3
+                    map["title"] = "奶茶"
+                    map["info"] = "清纯妹妹"
+                    list.add(map)
+
+                    map = HashMap()
+                    map["img"] = R.drawable.bh3_4
+                    map["title"] = "大黄"
+                    map["info"] = "是小狗"
+                    list.add(map)
+
+                    map = HashMap()
+                    map["img"] = R.drawable.bh3_5
+                    map["title"] = "hello"
+                    map["info"] = "every thing"
+                    list.add(map)
+
+                    map = HashMap()
+                    map["img"] = R.drawable.bh3_6
+                    map["title"] = "world"
+                    map["info"] = "hello world"
+                    list.add(map)
+
+                    return list
+                }
+                val listView = findViewById<ListView>(R.id.listview)
+                val adapter = SimpleAdapter(
+                    this,
+                    getData(),
+                    R.layout.we_sub_simpleadapter_item,
+                    arrayOf("img", "title", "info"),
+                    intArrayOf(R.id.icon_img, R.id.title_tv, R.id.info_tv)
+                )
+                listView.setAdapter(adapter)
+            }
+            "baseadapter" -> {
+                setContentView(R.layout.we_sub_baseadapter)
+                setTitle("baseadapter展示")
+                fun getData(): List<Data> {
+                    val datas = ArrayList<Data>()
+                    datas.add(Data(R.drawable.bh3_1, "小宗", "电台DJ"))
+                    datas.add(Data(R.drawable.bh3_2, "貂蝉", "四大美女"))
+                    datas.add(Data(R.drawable.bh3_3, "奶茶", "清纯妹妹"))
+                    datas.add(Data(R.drawable.bh3_4, "大黄", "是小狗"))
+                    datas.add(Data(R.drawable.bh3_5, "hello", "every thing"))
+                    datas.add(Data(R.drawable.bh3_6, "world", "hello world"))
+                    return datas
+                }
+                val listView = findViewById(R.id.listview) as ListView
+
+                // 将数组包装为自定义MyBaseAdapter
+                val adapter = MyBaseAdapter(this, getData(), R.layout.we_sub_baseadapter_item)
+
+                // 为ListView设置Adapter
+                listView.adapter = adapter
+
+            }
             else ->{
             }
         }
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+
+        // 获取更改后的屏幕方向
+        val screen = newConfig.orientation
+        val ori = if (Configuration.ORIENTATION_LANDSCAPE === screen) "横屏" else "竖屏"
+
+        // 消息提示
+        Toast.makeText(this, "系统的屏幕方向改变为：$ori", Toast.LENGTH_SHORT).show()
     }
 }

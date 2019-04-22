@@ -118,4 +118,49 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub, "33")
         startActivity(intent)
     }
+    fun we_sub_34(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "34")
+        startActivity(intent)
+    }
+    fun we_sub_35(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "35")
+        startActivity(intent)
+    }
+    fun we_sub_36(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "36")
+        startActivity(intent)
+    }
+    fun we_sub_listview(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "listview")
+        startActivity(intent)
+    }
+    fun we_sub_adapter(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "adapter")
+        startActivity(intent)
+    }
+    fun we_sub_listactivity(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "listactivity")
+        startActivity(intent)
+    }
+    fun we_sub_arrayadapter(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "arrayadapter")
+        startActivity(intent)
+    }
+    fun we_sub_simpleadapter(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "simpleadapter")
+        startActivity(intent)
+    }
+    fun we_sub_baseadapter(view: View){
+        val intent = Intent(this, we_sub::class.java)
+        intent.putExtra(ojbk.we_sub, "baseadapter")
+        startActivity(intent)
+    }
 }

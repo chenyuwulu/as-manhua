@@ -21,6 +21,16 @@
     <string name="button17">绝对布局</string>
     <string name="button18">网格布局</string>
     <string name="button19">Android事件</string>
+    <string name="button20">事件监听</string>
+    <string name="button21">事件回调</string>
+    <string name="button22">系统事件</string>
+    <string name="button23">listview</string>
+    <string name="button24">adapter</string>
+    <string name="button25">listactivity</string>
+    <string name="button26">arrayadapter</string>
+    <string name="button27">simpleadapter</string>
+    <string name="button28">baseadapter</string>
+    <string name="button29">listview优化</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">标题左</string>
     <string name="title_dashboard">标题中</string>
