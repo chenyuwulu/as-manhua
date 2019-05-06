@@ -31,6 +31,7 @@
     <string name="button27">simpleadapter</string>
     <string name="button28">baseadapter</string>
     <string name="button29">listview优化</string>
+    <string name="button30">listview数据更新</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">标题左</string>
     <string name="title_dashboard">标题中</string>

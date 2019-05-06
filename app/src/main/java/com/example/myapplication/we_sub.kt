@@ -16,6 +16,8 @@ import android.widget.ArrayAdapter
 
 
 
+
+
 class we_sub : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -428,6 +430,12 @@ class we_sub : AppCompatActivity() {
                 listView.adapter = adapter
 
             }
+            "listview优化暂为空"->{
+            }
+            "listview_apply"->{
+                setContentView(R.layout.we_sub_listview_apply)
+                setTitle("重写类，所以没内嵌在里面，放在外面UpdateDataActivity这个类里")
+            }
             else ->{
             }
         }
@@ -443,4 +451,5 @@ class we_sub : AppCompatActivity() {
         // 消息提示
         Toast.makeText(this, "系统的屏幕方向改变为：$ori", Toast.LENGTH_SHORT).show()
     }
+
 }
