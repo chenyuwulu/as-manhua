@@ -163,6 +163,9 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub, "baseadapter")
         startActivity(intent)
     }
+    fun list_youhua(view:View){
+
+    }
     fun we_sub_listview_apply(view: View){
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "listview_apply")
