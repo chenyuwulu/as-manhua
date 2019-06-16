@@ -171,4 +171,35 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub, "listview_apply")
         startActivity(intent)
     }
+    fun we_sub_gridview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"gridview")
+        startActivity(intent)
+    }
+    fun we_sub_spinner(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"spinner")
+        startActivity(intent)
+    }
+    fun we_sub_autocomplete_textview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"autocomplete_textview")
+        startActivity(intent)
+    }
+    fun we_sub_expandlist(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"expandlist")
+        startActivity(intent)
+    }
+    fun we_sub_adapterview_filpper(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"adapterview_filpper")
+        startActivity(intent)
+    }
+    fun we_sub_stackview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"stackview")
+        startActivity(intent)
+    }
+
 }

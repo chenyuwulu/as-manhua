@@ -98,4 +98,14 @@
         <item>项目31</item>
         <item>项目32</item>
     </string-array>
+    <string-array name="professionals">
+        <item>Android</item>
+        <item>Java</item>
+        <item>Python</item>
+        <item>PHP</item>
+        <item>.Net</item>
+        <item>C++</item>
+        <item>C</item>
+    </string-array>
+
 </resources>

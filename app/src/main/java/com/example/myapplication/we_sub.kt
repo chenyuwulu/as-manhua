@@ -12,13 +12,27 @@ import android.widget.RadioGroup
 import android.widget.TextView
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
+import android.widget.GridView
+import android.widget.SimpleAdapter
+import android.widget.MultiAutoCompleteTextView
+import android.widget.ExpandableListView
+import android.support.v4.app.NotificationCompat.getGroup
+import android.app.ExpandableListActivity
 
 
 
 
 
 
-class we_sub : AppCompatActivity() {
+
+
+
+
+class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
@@ -290,7 +304,6 @@ class we_sub : AppCompatActivity() {
                     this,
                     android.R.layout.simple_list_item_1, books
                 )
-
                 // 为ListView设置Adapter
                 listView.adapter = adapter
 
@@ -435,6 +448,271 @@ class we_sub : AppCompatActivity() {
             "listview_apply"->{
                 setContentView(R.layout.we_sub_listview_apply)
                 setTitle("重写类，所以没内嵌在里面，放在外面UpdateDataActivity这个类里")
+                // 获取界面组件
+                val mListView = findViewById<ListView>(R.id.listview)
+                val mAddBtn = findViewById<Button>(R.id.add_btn)
+                val mUpdateBtn = findViewById<Button>(R.id.update_btn)
+                val mDeleteBtn = findViewById<Button>(R.id.delete_btn)
+                val mClearBtn = findViewById<Button>(R.id.clear_btn)
+                val mAdapter:MyUpdateAdapter
+                // 添加列表控内容视图
+                val emptyView = findViewById<View>(R.id.empty_tv)
+                mListView.emptyView = emptyView
+                // 初始化列表
+                val datas = LinkedList<UpdateData>()
+                mAdapter = MyUpdateAdapter(this, datas)
+                mListView.adapter = mAdapter
+                // 设置按钮点击事件监听器
+                //获取列表随机位置
+                fun getRandomPosition(): Int {
+                    val count = mAdapter.getCount()
+                    return (Math.random() * count).toInt()
+                }
+                //获取100以内的随机数
+                fun getRandomNumber(): Double {
+                    return Math.random() * 100
+                }
+                mAddBtn.setOnClickListener{
+                    val position = getRandomPosition()
+                    mAdapter.add(position, UpdateData(R.mipmap.ic_launcher, "随机添加$position"))
+                }
+                mUpdateBtn.setOnClickListener {
+                    val position = getRandomPosition()
+                    mAdapter.update(position, UpdateData(R.mipmap.ic_launcher, "更新" + getRandomNumber()))
+                }
+                mDeleteBtn.setOnClickListener {
+                    val position = getRandomPosition()
+                    mAdapter.remove(position)
+                }
+                mClearBtn.setOnClickListener {
+                    mAdapter.clear()
+                }
+//                mUpdateBtn.setOnClickListener(this)
+//                mDeleteBtn.setOnClickListener(this)
+//                mClearBtn.setOnClickListener(this)
+            }
+            "gridview"->{
+                setContentView(R.layout.we_sub_gridview)
+                setTitle("GridView简单使用")
+                // 应用图标
+                val mAppIcons = intArrayOf(
+                    R.drawable.bh3_1,
+                    R.drawable.bh3_2,
+                    R.drawable.bh3_3,
+                    R.drawable.bh3_4,
+                    R.drawable.bh3_5,
+                    R.drawable.bh3_6,
+                    R.drawable.bh3_7,
+                    R.drawable.bh3_8,
+                    R.drawable.bh3_9
+                )
+                // 应用名
+                val mAppNames = arrayOf(
+                    "崩坏3-1",
+                    "崩坏3-2",
+                    "崩坏3-3",
+                    "崩坏3-4",
+                    "崩坏3-5",
+                    "崩坏3-6",
+                    "崩坏3-7",
+                    "崩坏3-8",
+                    "崩坏3-9"
+                )
+                // 获取界面组件
+                val mAppGridView = findViewById<GridView>(R.id.gridview)
+                // 初始化数据，创建一个List对象，List对象的元素是Map
+                val listItems = ArrayList<Map<String, Any>>()
+                for (i in 0 until mAppIcons.size) {
+                    val listItem = HashMap<String, Any>()
+                    listItem["icon"] = mAppIcons[i]
+                    listItem["name"] = mAppNames[i]
+                    listItems.add(listItem)
+                }
+                // 创建一个SimpleAdapter
+                val simpleAdapter = SimpleAdapter(
+                    this,
+                    listItems,
+                    R.layout.we_sub_gridview_item,
+                    arrayOf("icon", "name"),
+                    intArrayOf(R.id.icon_img, R.id.name_tv)
+                )
+                // 为GridView设置Adapter
+                mAppGridView.adapter = simpleAdapter
+                mAppGridView.onItemClickListener = AdapterView.OnItemClickListener { parent, view, position, id ->
+                    // 显示被单击的图片
+                    Toast.makeText(
+                        this@we_sub, mAppNames[position],
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            }
+            "spinner"->{
+                setContentView(R.layout.we_sub_spinner)
+                setTitle("下拉框Spinner")
+                // 获取界面布局文件中的Spinner组件
+                val mProSpinner = findViewById<Spinner>(R.id.spin_one)
+                val mBookSpinner = findViewById<Spinner>(R.id.spin_two)
+
+                val arr = arrayOf("初识Android开发", "Android初识开发", "Android中级开发", "Android高级开发", "Android开发进阶")
+                // 创建ArrayAdapter对象
+                val adapter = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_list_item_1, arr
+                )
+                // 为Spinner设置Adapter
+                mBookSpinner.adapter = adapter
+                // 为Spinner设置选中事件监听器
+                mProSpinner.onItemSelectedListener = this
+                mBookSpinner.onItemSelectedListener = this
+            }
+            "autocomplete_textview"->{
+                setContentView(R.layout.we_sub_autocomplete_textview)
+                setTitle("自动完成文本框")
+                val mContacts = arrayOf("test", "abc", "aaa", "aabbcc", "bac", "ok", "say", "aabbsd")
+                val mAutoTv = findViewById<AutoCompleteTextView>(R.id.auto_actv)
+                val mMultiAutoTv = findViewById<MultiAutoCompleteTextView>(R.id.mauto_mactv)
+                // 创建一个ArrayAdapter，封装数组
+                val aa = ArrayAdapter(
+                    this,
+                    android.R.layout.simple_dropdown_item_1line, mContacts
+                )
+                mAutoTv.setAdapter(aa)
+                mMultiAutoTv.setAdapter(aa)
+                mMultiAutoTv.setTokenizer(MultiAutoCompleteTextView.CommaTokenizer())
+            }
+            "expandlist"->{
+                setContentView(R.layout.we_sub_expandlist)
+                setTitle("可折叠列表ExpandableListView")
+                // 列表数据
+                var mGroupNameList: List<String>? = null
+                var mItemNameList: List<List<String>>? = null
+                // 适配器
+                var mAdapter: MyExpandableListViewAdapter? = null
+                val mExpandableListView = findViewById<ExpandableListView>(R.id.expendlist)
+                mExpandableListView.setGroupIndicator(null)
+
+                //初始化数据
+                // 组名
+                mGroupNameList = ArrayList<String>()
+                mGroupNameList.add("历代帝王")
+                mGroupNameList.add("华坛明星")
+                mGroupNameList.add("国外明星")
+                mGroupNameList.add("政坛人物")
+
+                mItemNameList = ArrayList<List<String>>()
+                // 历代帝王组
+                var itemList: MutableList<String> = ArrayList()
+                itemList.add("唐太宗李世民")
+                itemList.add("秦始皇嬴政")
+                itemList.add("汉武帝刘彻")
+                itemList.add("明太祖朱元璋")
+                itemList.add("宋太祖赵匡胤")
+                mItemNameList.add(itemList)
+                // 华坛明星组
+                itemList = ArrayList()
+                itemList.add("范冰冰 ")
+                itemList.add("梁朝伟")
+                itemList.add("谢霆锋")
+                itemList.add("章子怡")
+                itemList.add("杨颖")
+                itemList.add("张柏芝")
+                mItemNameList.add(itemList)
+                // 国外明星组
+                itemList = ArrayList()
+                itemList.add("安吉丽娜•朱莉")
+                itemList.add("艾玛•沃特森")
+                itemList.add("朱迪•福斯特")
+                mItemNameList.add(itemList)
+                // 政坛人物组
+                itemList = ArrayList()
+                itemList.add("唐纳德•特朗普")
+                itemList.add("金正恩")
+                itemList.add("奥巴马")
+                itemList.add("普京")
+                mItemNameList.add(itemList)
+                // 为ExpandableListView设置Adapter
+                mAdapter = MyExpandableListViewAdapter(this, mGroupNameList, mItemNameList)
+                mExpandableListView.setAdapter(mAdapter)
+
+                // 监听组点击
+                mExpandableListView.setOnGroupClickListener { parent, v, groupPosition, id ->
+                    mGroupNameList[groupPosition].isEmpty()
+                }
+                // 监听每个分组里子控件的点击事件
+                mExpandableListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
+                    Toast.makeText(
+                        this@we_sub,
+                        mAdapter.getGroup(groupPosition) + ":"
+                                + mAdapter.getChild(groupPosition, childPosition),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    false
+                }
+            }
+            "adapterview_filpper"->{
+                setContentView(R.layout.we_sub_adapterview_filpper)
+                setTitle("AdapterViewFlipper图片轮播")
+                val mImageIds = intArrayOf(
+                    R.drawable.bh3_1,
+                    R.drawable.bh3_2,
+                    R.drawable.bh3_3,
+                    R.drawable.bh3_4,
+                    R.drawable.bh3_5,
+                    R.drawable.bh3_6,
+                    R.drawable.bh3_7,
+                    R.drawable.bh3_8,
+                    R.drawable.bh3_9
+                )
+                val mFlipper = findViewById<AdapterViewFlipper>(R.id.flipper)
+                val mPrevBtn = findViewById<Button>(R.id.prev_btn)
+                val mNextBtn = findViewById<Button>(R.id.next_btn)
+                val mAutoBtn = findViewById<Button>(R.id.auto_btn)
+                val adapter = MyFilpperAdapter(this, mImageIds)
+                mFlipper.adapter = adapter
+                mPrevBtn.setOnClickListener{
+                    // 显示上一个组件
+                    mFlipper.showPrevious()
+                    // 停止自动播放
+                    mFlipper.stopFlipping()
+                }
+                mNextBtn.setOnClickListener{
+                    // 显示下一个组件。
+                    mFlipper.showNext()
+                    // 停止自动播放
+                    mFlipper.stopFlipping()
+                }
+                mAutoBtn.setOnClickListener{
+                    // 开始自动播放
+                    mFlipper.startFlipping()
+                }
+            }
+            "stackview"->{
+                setContentView(R.layout.we_sub_stackview)
+                setTitle("StackView卡片堆叠")
+                val mImageIds = intArrayOf(
+                    R.drawable.bh3_11,
+                    R.drawable.bh3_12,
+                    R.drawable.bh3_13,
+                    R.drawable.bh3_14,
+                    R.drawable.bh3_15,
+                    R.drawable.bh3_16,
+                    R.drawable.bh3_17,
+                    R.drawable.bh3_18
+                )
+                // 获取界面组件
+                val mStackView = findViewById<StackView>(R.id.stackview)
+                val mPrevBtn = findViewById<Button>(R.id.prev_btn)
+                val mNextBtn = findViewById<Button>(R.id.next_btn)
+                // 为AdapterViewFlipper设置Adapter
+                val adapter = MyStackAdapter(this, mImageIds)
+                mStackView.adapter = adapter
+                mPrevBtn.setOnClickListener{
+                    mStackView.showPrevious()
+                }
+                mNextBtn.setOnClickListener{
+                    mStackView.showNext()
+                }
             }
             else ->{
             }
@@ -451,5 +729,20 @@ class we_sub : AppCompatActivity() {
         // 消息提示
         Toast.makeText(this, "系统的屏幕方向改变为：$ori", Toast.LENGTH_SHORT).show()
     }
-
+    override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
+        val content = parent.getItemAtPosition(position).toString()
+        when (parent.id) {
+            R.id.spin_one -> Toast.makeText(
+                this@we_sub, "选择的专业是：$content",
+                Toast.LENGTH_SHORT
+            ).show()
+            R.id.spin_two -> Toast.makeText(
+                this@we_sub, "选择的教材是：$content",
+                Toast.LENGTH_SHORT
+            ).show()
+            else -> {
+            }
+        }
+    }
+    override fun onNothingSelected(adapterView: AdapterView<*>) {}
 }
