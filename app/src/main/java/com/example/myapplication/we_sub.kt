@@ -19,11 +19,15 @@ import android.widget.GridView
 import android.widget.SimpleAdapter
 import android.widget.MultiAutoCompleteTextView
 import android.widget.ExpandableListView
-import android.support.v4.app.NotificationCompat.getGroup
-import android.app.ExpandableListActivity
-
-
-
+import android.graphics.drawable.AnimationDrawable
+import android.widget.SeekBar
+import android.widget.ViewSwitcher
+import com.example.myapplication.we_sub.ViewSwitchers.NUMBER_PER_SCREEN
+import com.example.myapplication.we_sub.ViewSwitchers.screenCount
+import android.widget.ImageSwitcher
+import android.view.ViewGroup
+import android.widget.ImageView.ScaleType
+import android.widget.ImageView
 
 
 
@@ -33,6 +37,18 @@ import android.app.ExpandableListActivity
 
 class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
+    object ViewSwitchers {
+        var screenNo = -1
+        // 定义一个常量，用于显示每屏显示的应用程序数
+        val NUMBER_PER_SCREEN = 12
+        // 记录当前正在显示第几屏的程序
+
+        // 保存程序所占的总屏数
+        var screenCount: Int = 0
+    }
+    private var mAdapter: ViewSwitcherBaseAdapter? = null
+    // 保存系统所有应用程序的List集合
+    private val mItemDatas = ArrayList<ViewSwitcherItemData>()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
@@ -643,8 +659,8 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 mExpandableListView.setOnChildClickListener { parent, v, groupPosition, childPosition, id ->
                     Toast.makeText(
                         this@we_sub,
-                        mAdapter.getGroup(groupPosition) + ":"
-                                + mAdapter.getChild(groupPosition, childPosition),
+                        mAdapter!!.getGroup(groupPosition) + ":"
+                                + mAdapter!!.getChild(groupPosition, childPosition),
                         Toast.LENGTH_SHORT
                     ).show()
                     false
@@ -714,6 +730,149 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     mStackView.showNext()
                 }
             }
+            "progressbar"->{
+                setContentView(R.layout.we_sub_progressbar)
+                setTitle("进度条ProgressBar")
+            }
+            "custom_progressbar"->{
+                setContentView(R.layout.we_sub_custom_progressbar)
+                setTitle("自定义进度条")
+                val mProgressbarImg = findViewById<ImageView>(R.id.mypg_img)
+                val mProgressAnimation = mProgressbarImg.drawable as AnimationDrawable
+                // 启动动画
+                mProgressbarImg.postDelayed({
+                    // 启动动画
+                    mProgressAnimation.start()
+                }, 100)
+
+            }
+            "seekbar_ratingbar"->{
+                setContentView(R.layout.we_sub_seekbar_ratingbar)
+                setTitle("拖动条SeekBar和星级评分条RatingBar")
+                val mSeekBar = findViewById<SeekBar>(R.id.seekBar)
+                val mPromptTv = findViewById<TextView>(R.id.prompt_tv)
+                val mProgressTv = findViewById<TextView>(R.id.pb_tv)
+
+                // 注册事件监听器
+                mSeekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
+                    override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                        mPromptTv.setText("停止拖动")
+                    }
+
+                    override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                        mPromptTv.setText("开始拖动")
+                    }
+
+                    override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                        mPromptTv.setText("正在拖动")
+                        mProgressTv.setText("当前数值:" + progress)
+                    }
+                })
+            }
+            "viewswitcher"->{
+                setContentView(R.layout.we_sub_viewswitcher)
+                setTitle("视图切换组件ViewSwitcher")
+                val mViewSwitcher = findViewById<ViewSwitcher>(R.id.viewSwitcher)
+                val mPrevBtn = findViewById<Button>(R.id.prev_btn)
+                val mNextBtn  = findViewById<Button>(R.id.next_btn)
+                mViewSwitcher.setFactory {
+                    // 加载R.layout.slide_gridview组件，实际上就是一个GridView组件
+                    return@setFactory this@we_sub.getLayoutInflater().inflate(R.layout.we_sub_viewswitcher_slide_gridview, null)
+                }
+                // 创建一个包含40个元素的List集合，用于模拟包含40个应用程序
+                for (i in 0..39) {
+                    val item = ViewSwitcherItemData("item$i", R.drawable.bh3)
+                    mItemDatas.add(item)
+                }
+                // 计算应用程序所占的总屏数
+                // 如果应用程序的数量能整除NUMBER_PER_SCREEN，除法的结果就是总屏数
+                // 如果不能整除，总屏数应该是除法的结果再加1
+                screenCount = if (mItemDatas.size % NUMBER_PER_SCREEN === 0)
+                    mItemDatas.size / NUMBER_PER_SCREEN
+                else
+                    mItemDatas.size / NUMBER_PER_SCREEN + 1
+
+                mAdapter = ViewSwitcherBaseAdapter(this, mItemDatas)
+
+                mPrevBtn.setOnClickListener {
+                    if (ViewSwitchers.screenNo > 0) {
+                        ViewSwitchers.screenNo--
+                        // 为ViewSwitcher的组件显示过程设置动画
+                        mViewSwitcher.setInAnimation(this, android.R.anim.slide_in_left)
+                        // 为ViewSwitcher的组件隐藏过程设置动画
+                        mViewSwitcher.setOutAnimation(this, android.R.anim.slide_out_right)
+                        // 控制下一屏将要显示的GridView对应的 Adapter
+                        (mViewSwitcher.nextView as GridView).adapter = mAdapter
+                        // 单击左边按钮，显示上一屏，当然可以采用手势
+                        // 学习手势检测后，也可通过手势检测实现显示上一屏
+                        mViewSwitcher.showPrevious()
+                    }
+
+                }
+                mNextBtn.setOnClickListener {
+                    if (ViewSwitchers.screenNo < screenCount - 1) {
+                        ViewSwitchers.screenNo++
+                        // 为ViewSwitcher的组件显示过程设置动画
+                        mViewSwitcher.setInAnimation(this, R.anim.slide_in_right)
+                        // 为ViewSwitcher的组件隐藏过程设置动画
+                        mViewSwitcher.setOutAnimation(this, R.anim.slide_out_left)
+                        // 控制下一屏将要显示的GridView对应的Adapter
+                        (mViewSwitcher.nextView as GridView).adapter = mAdapter
+                        // 单击右边按钮，显示下一屏
+                        // 学习手势检测后，也可通过手势检测实现显示下一屏
+                        mViewSwitcher.showNext()
+                    }
+                }
+                if (ViewSwitchers.screenNo < screenCount - 1) {
+                    ViewSwitchers.screenNo++
+                    // 为ViewSwitcher的组件显示过程设置动画
+                    mViewSwitcher.setInAnimation(this, R.anim.slide_in_right)
+                    // 为ViewSwitcher的组件隐藏过程设置动画
+                    mViewSwitcher.setOutAnimation(this, R.anim.slide_out_left)
+                    // 控制下一屏将要显示的GridView对应的Adapter
+                    (mViewSwitcher.nextView as GridView).adapter = mAdapter
+                    // 单击右边按钮，显示下一屏
+                    // 学习手势检测后，也可通过手势检测实现显示下一屏
+                    mViewSwitcher.showNext()
+                }
+            }
+            "imageswitcher_textswitcher"->{
+                setContentView(R.layout.we_sub_imageswitcher_textswitcher)
+                setTitle("ImageSwitcher和TextSwitcher使用")
+                val mImageIds = intArrayOf(
+                    R.drawable.bh3_1,
+                    R.drawable.bh3_2,
+                    R.drawable.bh3_3,
+                    R.drawable.bh3_4,
+                    R.drawable.bh3_5
+                )
+                var mIndex = 0
+                val mImageSwitcher = findViewById<ImageSwitcher>(R.id.switcher)
+//                mImageSwitcher.setFactory(object : ViewSwitcher.ViewFactory{
+//                    override fun makeView(): View {
+//                        val imageView = ImageView(this@we_sub)
+//                        imageView.setBackgroundColor(-0x1000000)
+//                        // 设置填充方式
+//                        imageView.scaleType = ScaleType.FIT_XY
+//                        imageView.layoutParams = ImageSwitcher.LayoutParams(
+//                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
+//                        )
+//                        return imageView
+//                    }
+//                })
+                mImageSwitcher.setInAnimation(this, android.R.anim.fade_in)
+                mImageSwitcher.setOutAnimation(this, android.R.anim.fade_out)
+                // 为ImageSwitcher绑定监听事件
+                mImageSwitcher.setOnClickListener {
+                    mIndex++
+                    if (mIndex >= mImageIds.size) {
+                        mIndex = 0
+                    }
+                    mImageSwitcher.setImageResource(mImageIds[mIndex])
+                }
+
+                mImageSwitcher.setImageResource(mImageIds[0])
+            }
             else ->{
             }
         }
@@ -746,3 +905,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     }
     override fun onNothingSelected(adapterView: AdapterView<*>) {}
 }
+
+
+
+

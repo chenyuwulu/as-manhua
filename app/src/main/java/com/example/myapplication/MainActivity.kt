@@ -201,5 +201,29 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"stackview")
         startActivity(intent)
     }
-
+    fun we_sub_progressbar(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"progressbar")
+        startActivity(intent)
+    }
+    fun we_sub_custom_progressbar(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"custom_progressbar")
+        startActivity(intent)
+    }
+    fun we_sub_seekbar_ratingbar(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"seekbar_ratingbar")
+        startActivity(intent)
+    }
+    fun we_sub_viewswitcher(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"viewswitcher")
+        startActivity(intent)
+    }
+    fun we_sub_imageswitcher_textswitcher(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"imageswitcher_textswitcher")
+        startActivity(intent)
+    }
 }
