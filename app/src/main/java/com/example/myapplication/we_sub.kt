@@ -848,18 +848,18 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 )
                 var mIndex = 0
                 val mImageSwitcher = findViewById<ImageSwitcher>(R.id.switcher)
-//                mImageSwitcher.setFactory(object : ViewSwitcher.ViewFactory{
-//                    override fun makeView(): View {
-//                        val imageView = ImageView(this@we_sub)
-//                        imageView.setBackgroundColor(-0x1000000)
-//                        // 设置填充方式
-//                        imageView.scaleType = ScaleType.FIT_XY
-//                        imageView.layoutParams = ImageSwitcher.LayoutParams(
-//                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-//                        )
-//                        return imageView
-//                    }
-//                })
+                mImageSwitcher.setFactory(object : ViewSwitcher.ViewFactory{
+                    override fun makeView(): View {
+                        val imageView = ImageView(this@we_sub)
+                        imageView.setBackgroundColor(-0x1000000)
+                        // 设置填充方式
+                        imageView.scaleType = ScaleType.FIT_XY
+                        imageView.layoutParams = FrameLayout.LayoutParams(
+                            ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
+                        )
+                        return imageView
+                    }
+                })
                 mImageSwitcher.setInAnimation(this, android.R.anim.fade_in)
                 mImageSwitcher.setOutAnimation(this, android.R.anim.fade_out)
                 // 为ImageSwitcher绑定监听事件
