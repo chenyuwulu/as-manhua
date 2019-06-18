@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.content.res.Configuration
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.text.TextUtils
@@ -49,6 +50,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     private var mAdapter: ViewSwitcherBaseAdapter? = null
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
@@ -836,9 +838,9 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     mViewSwitcher.showNext()
                 }
             }
-            "imageswitcher_textswitcher"->{
-                setContentView(R.layout.we_sub_imageswitcher_textswitcher)
-                setTitle("ImageSwitcher和TextSwitcher使用")
+            "imageswitcher"->{
+                setContentView(R.layout.we_sub_imageswitcher)
+                setTitle("ImageSwitcher使用")
                 val mImageIds = intArrayOf(
                     R.drawable.bh3_1,
                     R.drawable.bh3_2,
@@ -872,6 +874,54 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 }
 
                 mImageSwitcher.setImageResource(mImageIds[0])
+            }
+            "textswitcher"->{
+                setContentView(R.layout.we_sub_textswitcher)
+                setTitle("TextSwitcher使用")
+                val mContents = arrayOf("你好", "HelloWorld", "Good!!!", "TextSwitcher", "你会了吗？")
+                var mIndex: Int = 0
+                val mTextSwitcher = findViewById<TextSwitcher>(R.id.textSwitcher)
+                mTextSwitcher.setFactory ( object: ViewSwitcher.ViewFactory{
+                    override fun makeView(): View {
+                        val tv = TextView(this@we_sub)
+                        tv.textSize = 40f
+                        tv.setTextColor(Color.MAGENTA)
+                        return tv
+                    }
+                })
+                mTextSwitcher.setOnClickListener { mTextSwitcher.setText(mContents[mIndex++ % mContents.size]) }
+                mTextSwitcher.setText(mContents[0])
+            }
+            "viewflipper"->{
+                setContentView(R.layout.we_sub_viewflipper)
+                setTitle("翻转视图ViewFlipper打造引导页和轮播图")
+                // viewflipper定义在里面，触发方法有问题所以放在外面
+                val mViewFlipper = findViewById<ViewFlipper>(R.id.details)
+                val viewflipper_prev = findViewById<Button>(R.id.viewflipper_prev)
+                val viewflipper_auto = findViewById<Button>(R.id.viewflipper_auto)
+                val viewflipper_next = findViewById<Button>(R.id.viewflipper_next)
+                viewflipper_prev.setOnClickListener {
+                    mViewFlipper.setInAnimation(this, R.anim.slide_in_right)
+                    mViewFlipper.setOutAnimation(this, R.anim.slide_out_left)
+                    // 显示上一个组件
+                    mViewFlipper.showPrevious()
+                    // 停止自动播放
+                    mViewFlipper.stopFlipping()
+                }
+                viewflipper_next.setOnClickListener {
+                    mViewFlipper.setInAnimation(this, android.R.anim.slide_in_left)
+                    mViewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)
+                    // 开始自动播放
+                    mViewFlipper.startFlipping()
+                }
+                viewflipper_auto.setOnClickListener {
+                    mViewFlipper.setInAnimation(this, android.R.anim.slide_in_left)
+                    mViewFlipper.setOutAnimation(this, android.R.anim.slide_out_right)
+                    // 显示下一个组件
+                    mViewFlipper.showNext()
+                    // 停止自动播放
+                    mViewFlipper.stopFlipping()
+                }
             }
             else ->{
             }

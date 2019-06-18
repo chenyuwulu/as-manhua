@@ -221,9 +221,19 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"viewswitcher")
         startActivity(intent)
     }
-    fun we_sub_imageswitcher_textswitcher(view: View){
+    fun we_sub_imageswitcher(view: View){
         val intent = Intent(this,we_sub::class.java)
-        intent.putExtra(ojbk.we_sub,"imageswitcher_textswitcher")
+        intent.putExtra(ojbk.we_sub,"imageswitcher")
+        startActivity(intent)
+    }
+    fun we_sub_textswitcher(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"textswitcher")
+        startActivity(intent)
+    }
+    fun we_sub_viewflipper(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"viewflipper")
         startActivity(intent)
     }
 }
