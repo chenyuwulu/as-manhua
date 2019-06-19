@@ -236,4 +236,14 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"viewflipper")
         startActivity(intent)
     }
+    fun we_sub_datepicker(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"datepicker")
+        startActivity(intent)
+    }
+    fun we_sub_timepicker(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"timepicker")
+        startActivity(intent)
+    }
 }

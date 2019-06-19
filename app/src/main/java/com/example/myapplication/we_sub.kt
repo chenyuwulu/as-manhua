@@ -923,6 +923,47 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     mViewFlipper.stopFlipping()
                 }
             }
+            "datepicker"->{
+                setContentView(R.layout.we_sub_datepicker)
+                setTitle("日期选择器")
+                //获取日历对象
+                val mCalendar = Calendar.getInstance()
+                // 获取当前对应的年、月、日的信息
+                val mYear = mCalendar.get(Calendar.YEAR)
+                val mMonth = mCalendar.get(Calendar.MONTH)
+                val mDay = mCalendar.get(Calendar.DAY_OF_MONTH)
+                // 获取DatePicker组件
+                val mDatePicker = findViewById<DatePicker>(R.id.datePicker)
+                mDatePicker!!.init(mYear, mMonth, mDay) { view, year, monthOfYear, dayOfMonth ->
+                    Toast.makeText(
+                        this@we_sub,
+                        year.toString() + "年" + (monthOfYear + 1) + "月" + dayOfMonth + "日",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+
+            }
+            "timepicker"->{
+                setContentView(R.layout.we_sub_timepicker)
+                setTitle("时间选择器")
+                //获取日历对象
+                val mCalendar = Calendar.getInstance()
+
+                // 获取对应的时、分的信息
+                val mHour = mCalendar.get(Calendar.HOUR_OF_DAY)
+                val mMinute = mCalendar.get(Calendar.MINUTE)
+
+                // 获取TimePicker组件
+                val mTimePicker =findViewById<TimePicker>(R.id.timePicker)
+                // 为TimePicker指定监听器
+                mTimePicker!!.setOnTimeChangedListener { view, hourOfDay, minute ->
+                    Toast.makeText(
+                        this@we_sub, "$hourOfDay:$minute",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
             else ->{
             }
         }

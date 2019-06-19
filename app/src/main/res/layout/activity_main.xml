@@ -352,5 +352,19 @@
                 android:id="@+id/button43" android:layout_marginTop="8dp"
                 app:layout_constraintTop_toBottomOf="@+id/button40" app:layout_constraintStart_toEndOf="@+id/button42"
                 android:layout_marginStart="8dp" android:onClick="we_sub_viewflipper"/>
+        <Button
+                android:text="@string/button44"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button44" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/button42" app:layout_constraintStart_toStartOf="parent"
+                android:layout_marginStart="8dp" android:onClick="we_sub_datepicker"/>
+        <Button
+                android:text="@string/button45"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/button45" android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/button42" app:layout_constraintStart_toEndOf="@+id/button44"
+                android:layout_marginStart="8dp" android:onClick="we_sub_timepicker"/>
     </android.support.constraint.ConstraintLayout>
 </ScrollView>
