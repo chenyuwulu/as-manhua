@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.annotation.SuppressLint
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
@@ -52,21 +53,22 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
 
+    @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
         when (message) {
             "textview" -> {
                 setContentView(R.layout.we_sub_textview)
-                setTitle("文本框展示")
+                title = "文本框展示"
             }
             "edittext" -> {
                 setContentView(R.layout.we_sub_edittext)
-                setTitle("可编辑文本框展示")
+                title = "可编辑文本框展示"
             }
             "button" -> {
                 setContentView(R.layout.we_sub_button)
-                setTitle("按钮展示")
+                title = "按钮展示"
                 val mNameEt = findViewById<EditText>(R.id.name_et)
                 val mPasswordEt = findViewById<EditText>(R.id.pwd_et)
                 val mLoginBtn = findViewById<Button>(R.id.login_btn)
@@ -81,7 +83,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "check_radio" -> {
                 setContentView(R.layout.we_sub_check_radio)
-                setTitle("复选和单选框展示")
+                title = "复选和单选框展示"
                 val mShanghaiCb = findViewById<CheckBox>(R.id.shanghai_cb)
                 val mBeijingCb = findViewById<CheckBox>(R.id.beijing_cb)
                 val mChongqingCb = findViewById<CheckBox>(R.id.chongqing_cb)
@@ -127,7 +129,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "togglebutton_switch" -> {
                 setContentView(R.layout.we_sub_togglebutton_switch)
-                setTitle("开关按钮展示")
+                title = "开关按钮展示"
                 val mLikeTb = findViewById<ToggleButton>(R.id.like_tb)
                 val mBluetoothSwitch = findViewById<Switch>(R.id.bluetooth_switch)
                 mLikeTb.setOnCheckedChangeListener { compoundButton, b ->
@@ -151,11 +153,11 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "imageview" -> {
                 setContentView(R.layout.we_sub_imageview)
-                setTitle("图片视图展示")
+                title = "图片视图展示"
             }
             "imagebutton" -> {
                 setContentView(R.layout.we_sub_imagebutton)
-                setTitle("图片按钮展示")
+                title = "图片按钮展示"
                 val mControlIb = findViewById<ImageButton>(R.id.control_ib)
                 var mFlag = false
                 val mMinusZb = findViewById<ZoomButton>(R.id.minus_zb)
@@ -190,43 +192,43 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "customview" -> {
                 setContentView(R.layout.we_sub_customview)
-                setTitle("自定义view展示")
+                title = "自定义view展示"
             }
             "linearlayout" -> {
                 setContentView(R.layout.we_sub_linearlayout)
-                setTitle("线性布局展示")
+                title = "线性布局展示"
             }
             "gravity_layout_gravity" -> {
                 setContentView(R.layout.we_sub_gravity_layout_gravity)
-                setTitle("布局重心展示")
+                title = "布局重心展示"
             }
             "padding_margin" -> {
                 setContentView(R.layout.we_sub_padding_margin)
-                setTitle("padding&margin展示")
+                title = "padding&margin展示"
             }
             "relativelayout" -> {
                 setContentView(R.layout.we_sub_relativelayout)
-                setTitle("相对布局展示")
+                title = "相对布局展示"
             }
             "tablelayout" -> {
                 setContentView(R.layout.we_sub_tablelayout)
-                setTitle("表格布局展示")
+                title = "表格布局展示"
             }
             "framelayout" -> {
                 setContentView(R.layout.we_sub_framelayout)
-                setTitle("帧布局展示")
+                title = "帧布局展示"
             }
             "absolutelayout" -> {
                 setContentView(R.layout.we_sub_absolutelayout)
-                setTitle("绝对布局展示")
+                title = "绝对布局展示"
             }
             "gridlayout" -> {
                 setContentView(R.layout.we_sub_gridlayout)
-                setTitle("网格布局展示")
+                title = "网格布局展示"
             }
             "33" -> {
                 setContentView(R.layout.we_sub_33)
-                setTitle("Android事件展示")
+                title = "Android事件展示"
                 val button = findViewById<Button>(R.id.button)
                 button.setOnClickListener {
                     Toast.makeText(
@@ -238,16 +240,16 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "34"->{
                 setContentView(R.layout.we_sub_34)
-                setTitle("Android事件监听展示")
+                title = "Android事件监听展示"
             }
             "35"->{
                 setContentView(R.layout.we_sub_35)
-                setTitle("Android回调事件展示")
+                title = "Android回调事件展示"
             }
             "36"->{
                 setContentView(R.layout.we_sub_36)
-                setTitle("Android系统事件展示")
-                val configurationTv = findViewById(R.id.configuration_tv) as TextView
+                title = "Android系统事件展示"
+                val configurationTv = findViewById<TextView>(R.id.configuration_tv)
 
                 // 获取系统的Configuration对象
                 val cfg = resources.configuration
@@ -279,13 +281,13 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "listview"->{
                 setContentView(R.layout.we_sub_listview)
-                setTitle("listview展示")
+                title = "listview展示"
             }
             "adapter"->{
                 setContentView(R.layout.we_sub_adapter)
-                setTitle("adapter展示")
+                title = "adapter展示"
                 // 获取界面ListView组件
-                val listView = findViewById(R.id.listview) as ListView
+                val listView = findViewById<ListView>(R.id.listview)
 
                 // 定义一个数组
                 val books = arrayOf(
@@ -338,9 +340,9 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "listactivity"->{
                 setContentView(R.layout.we_sub_listactivity)
-                setTitle("listactivity监听展示")
+                title = "listactivity监听展示"
                 // 获取界面ListView组件
-                val listView = findViewById(R.id.listview) as ListView
+                val listView = findViewById<ListView>(R.id.listview)
 
                 // 定义一个List集合
                 val components = ArrayList<String>()
@@ -373,7 +375,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "arrayadapter"->{
                 setContentView(R.layout.we_sub_arrayadapter)
-                setTitle("arrayadapter展示")
+                title = "arrayadapter展示"
                 // 获取界面组件
                 val listView = findViewById<ListView>(R.id.listview)
 
@@ -389,7 +391,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "simpleadapter"->{
                 setContentView(R.layout.we_sub_simpleadapter)
-                setTitle("simpleadapter展示")
+                title = "simpleadapter展示"
                 fun getData(): List<Map<String, Any>> {
                     val list = ArrayList<Map<String, Any>>()
                     var map: MutableMap<String, Any> = HashMap()
@@ -438,11 +440,11 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     arrayOf("img", "title", "info"),
                     intArrayOf(R.id.icon_img, R.id.title_tv, R.id.info_tv)
                 )
-                listView.setAdapter(adapter)
+                listView.adapter = adapter
             }
             "baseadapter" -> {
                 setContentView(R.layout.we_sub_baseadapter)
-                setTitle("baseadapter展示")
+                title = "baseadapter展示"
                 fun getData(): List<Data> {
                     val datas = ArrayList<Data>()
                     datas.add(Data(R.drawable.bh3_1, "小宗", "电台DJ"))
@@ -453,7 +455,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     datas.add(Data(R.drawable.bh3_6, "world", "hello world"))
                     return datas
                 }
-                val listView = findViewById(R.id.listview) as ListView
+                val listView = findViewById<ListView>(R.id.listview)
 
                 // 将数组包装为自定义MyBaseAdapter
                 val adapter = MyBaseAdapter(this, getData(), R.layout.we_sub_baseadapter_item)
@@ -466,7 +468,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "listview_apply"->{
                 setContentView(R.layout.we_sub_listview_apply)
-                setTitle("重写类，所以没内嵌在里面，放在外面UpdateDataActivity这个类里")
+                title = "重写类，所以没内嵌在里面，放在外面UpdateDataActivity这个类里"
                 // 获取界面组件
                 val mListView = findViewById<ListView>(R.id.listview)
                 val mAddBtn = findViewById<Button>(R.id.add_btn)
@@ -484,7 +486,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 // 设置按钮点击事件监听器
                 //获取列表随机位置
                 fun getRandomPosition(): Int {
-                    val count = mAdapter.getCount()
+                    val count = mAdapter.count
                     return (Math.random() * count).toInt()
                 }
                 //获取100以内的随机数
@@ -512,7 +514,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "gridview"->{
                 setContentView(R.layout.we_sub_gridview)
-                setTitle("GridView简单使用")
+                title = "GridView简单使用"
                 // 应用图标
                 val mAppIcons = intArrayOf(
                     R.drawable.bh3_1,
@@ -568,7 +570,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "spinner"->{
                 setContentView(R.layout.we_sub_spinner)
-                setTitle("下拉框Spinner")
+                title = "下拉框Spinner"
                 // 获取界面布局文件中的Spinner组件
                 val mProSpinner = findViewById<Spinner>(R.id.spin_one)
                 val mBookSpinner = findViewById<Spinner>(R.id.spin_two)
@@ -587,7 +589,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "autocomplete_textview"->{
                 setContentView(R.layout.we_sub_autocomplete_textview)
-                setTitle("自动完成文本框")
+                title = "自动完成文本框"
                 val mContacts = arrayOf("test", "abc", "aaa", "aabbcc", "bac", "ok", "say", "aabbsd")
                 val mAutoTv = findViewById<AutoCompleteTextView>(R.id.auto_actv)
                 val mMultiAutoTv = findViewById<MultiAutoCompleteTextView>(R.id.mauto_mactv)
@@ -602,7 +604,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "expandlist"->{
                 setContentView(R.layout.we_sub_expandlist)
-                setTitle("可折叠列表ExpandableListView")
+                title = "可折叠列表ExpandableListView"
                 // 列表数据
                 var mGroupNameList: List<String>? = null
                 var mItemNameList: List<List<String>>? = null
@@ -671,7 +673,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "adapterview_filpper"->{
                 setContentView(R.layout.we_sub_adapterview_filpper)
-                setTitle("AdapterViewFlipper图片轮播")
+                title = "AdapterViewFlipper图片轮播"
                 val mImageIds = intArrayOf(
                     R.drawable.bh3_1,
                     R.drawable.bh3_2,
@@ -708,7 +710,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "stackview"->{
                 setContentView(R.layout.we_sub_stackview)
-                setTitle("StackView卡片堆叠")
+                title = "StackView卡片堆叠"
                 val mImageIds = intArrayOf(
                     R.drawable.bh3_11,
                     R.drawable.bh3_12,
@@ -735,11 +737,11 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "progressbar"->{
                 setContentView(R.layout.we_sub_progressbar)
-                setTitle("进度条ProgressBar")
+                title = "进度条ProgressBar"
             }
             "custom_progressbar"->{
                 setContentView(R.layout.we_sub_custom_progressbar)
-                setTitle("自定义进度条")
+                title = "自定义进度条"
                 val mProgressbarImg = findViewById<ImageView>(R.id.mypg_img)
                 val mProgressAnimation = mProgressbarImg.drawable as AnimationDrawable
                 // 启动动画
@@ -751,7 +753,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "seekbar_ratingbar"->{
                 setContentView(R.layout.we_sub_seekbar_ratingbar)
-                setTitle("拖动条SeekBar和星级评分条RatingBar")
+                title = "拖动条SeekBar和星级评分条RatingBar"
                 val mSeekBar = findViewById<SeekBar>(R.id.seekBar)
                 val mPromptTv = findViewById<TextView>(R.id.prompt_tv)
                 val mProgressTv = findViewById<TextView>(R.id.pb_tv)
@@ -759,28 +761,29 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 // 注册事件监听器
                 mSeekBar.setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
                     override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                        mPromptTv.setText("停止拖动")
+                        mPromptTv.text = "停止拖动"
                     }
 
                     override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                        mPromptTv.setText("开始拖动")
+                        mPromptTv.text = "开始拖动"
                     }
 
+                    @SuppressLint("SetTextI18n")
                     override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
-                        mPromptTv.setText("正在拖动")
-                        mProgressTv.setText("当前数值:" + progress)
+                        mPromptTv.text = "正在拖动"
+                        mProgressTv.text = "当前数值:" + progress
                     }
                 })
             }
             "viewswitcher"->{
                 setContentView(R.layout.we_sub_viewswitcher)
-                setTitle("视图切换组件ViewSwitcher")
+                title = "视图切换组件ViewSwitcher"
                 val mViewSwitcher = findViewById<ViewSwitcher>(R.id.viewSwitcher)
                 val mPrevBtn = findViewById<Button>(R.id.prev_btn)
                 val mNextBtn  = findViewById<Button>(R.id.next_btn)
                 mViewSwitcher.setFactory {
                     // 加载R.layout.slide_gridview组件，实际上就是一个GridView组件
-                    return@setFactory this@we_sub.getLayoutInflater().inflate(R.layout.we_sub_viewswitcher_slide_gridview, null)
+                    return@setFactory this@we_sub.layoutInflater.inflate(R.layout.we_sub_viewswitcher_slide_gridview, null)
                 }
                 // 创建一个包含40个元素的List集合，用于模拟包含40个应用程序
                 for (i in 0..39) {
@@ -841,7 +844,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "imageswitcher"->{
                 setContentView(R.layout.we_sub_imageswitcher)
-                setTitle("ImageSwitcher使用")
+                title = "ImageSwitcher使用"
                 val mImageIds = intArrayOf(
                     R.drawable.bh3_1,
                     R.drawable.bh3_2,
@@ -878,7 +881,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "textswitcher"->{
                 setContentView(R.layout.we_sub_textswitcher)
-                setTitle("TextSwitcher使用")
+                title = "TextSwitcher使用"
                 val mContents = arrayOf("你好", "HelloWorld", "Good!!!", "TextSwitcher", "你会了吗？")
                 var mIndex: Int = 0
                 val mTextSwitcher = findViewById<TextSwitcher>(R.id.textSwitcher)
@@ -895,7 +898,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "viewflipper"->{
                 setContentView(R.layout.we_sub_viewflipper)
-                setTitle("翻转视图ViewFlipper打造引导页和轮播图")
+                title = "翻转视图ViewFlipper打造引导页和轮播图"
                 // viewflipper定义在里面，触发方法有问题所以放在外面
                 val mViewFlipper = findViewById<ViewFlipper>(R.id.details)
                 val viewflipper_prev = findViewById<Button>(R.id.viewflipper_prev)
@@ -926,7 +929,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "datepicker"->{
                 setContentView(R.layout.we_sub_datepicker)
-                setTitle("日期选择器")
+                title = "日期选择器"
                 //获取日历对象
                 val mCalendar = Calendar.getInstance()
                 // 获取当前对应的年、月、日的信息
@@ -947,7 +950,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
             }
             "timepicker"->{
                 setContentView(R.layout.we_sub_timepicker)
-                setTitle("时间选择器")
+                title = "时间选择器"
                 //获取日历对象
                 val mCalendar = Calendar.getInstance()
 
