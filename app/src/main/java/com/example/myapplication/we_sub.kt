@@ -36,6 +36,7 @@ import android.widget.ImageView
 
 
 
+@Suppress("DEPRECATED_IDENTITY_EQUALS")
 class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
     object ViewSwitchers {
