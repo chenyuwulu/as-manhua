@@ -968,6 +968,23 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     ).show()
                 }
             }
+            "numberpicker"->{
+                setContentView(R.layout.we_sub_numberpicker)
+                title = "数值选择器NumberPicker"
+
+                val mNumberPicker = findViewById<NumberPicker>(R.id.numberPicker)
+                // 设置NumberPicker属性
+                mNumberPicker.minValue = 1
+                mNumberPicker.maxValue = 20
+                mNumberPicker.value = 5
+                // 监听数值改变事件
+                mNumberPicker.setOnValueChangedListener { picker, oldVal, newVal ->
+                    Toast.makeText(
+                        this@we_sub, "选择的是：" + newVal,
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+            }
             else ->{
             }
         }

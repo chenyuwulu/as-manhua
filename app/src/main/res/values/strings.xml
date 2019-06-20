@@ -47,6 +47,7 @@
     <string name="button43">viewflipper引导页和轮播图</string>
     <string name="button44">日期选择器</string>
     <string name="button45">时间选择器</string>
+    <string name="button46">数值选择器NumberPicker</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">标题左</string>
     <string name="title_dashboard">标题中</string>

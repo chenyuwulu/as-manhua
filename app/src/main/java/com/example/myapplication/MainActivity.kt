@@ -246,4 +246,9 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"timepicker")
         startActivity(intent)
     }
+    fun we_sub_numberpicker(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"numberpicker")
+        startActivity(intent)
+    }
 }
