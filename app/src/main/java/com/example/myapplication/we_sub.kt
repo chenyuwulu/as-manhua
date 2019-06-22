@@ -22,6 +22,10 @@ import android.widget.SimpleAdapter
 import android.widget.MultiAutoCompleteTextView
 import android.widget.ExpandableListView
 import android.graphics.drawable.AnimationDrawable
+import android.os.SystemClock
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.SeekBar
 import android.widget.ViewSwitcher
 import com.example.myapplication.we_sub.ViewSwitchers.NUMBER_PER_SCREEN
@@ -30,11 +34,6 @@ import android.widget.ImageSwitcher
 import android.view.ViewGroup
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
-
-
-
-
-
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -985,6 +984,174 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                     ).show()
                 }
             }
+            "clock"->{
+                setContentView(R.layout.we_sub_clock)
+                title = "时钟"
+            }
+            "calendarview_chronnmeter"->{
+                setContentView(R.layout.we_sub_calendarview_chronnmeter)
+                title = "日历和定时器"
+                val mChronometer = findViewById<Chronometer>(R.id.chronometer)
+
+                mChronometer.format = "计时：%s"
+
+                val mchronnmeter_start = findViewById<Button>(R.id.chronnmeter_start)
+                val mchronnmeter_stop = findViewById<Button>(R.id.chronnmeter_stop)
+                val mchronnmeter_reset = findViewById<Button>(R.id.chronnmeter_reset)
+                mchronnmeter_start.setOnClickListener {
+                    mChronometer.start()
+                }
+                mchronnmeter_stop.setOnClickListener {
+                    mChronometer.stop()
+                }
+                mchronnmeter_reset.setOnClickListener {
+                    mChronometer.base = SystemClock.elapsedRealtime()
+                }
+
+            }
+            "scrollview"->{
+                setContentView(R.layout.we_sub_scrollview)
+                title = "滚动视图"
+            }
+            "searchview"->{
+                setContentView(R.layout.we_sub_searchview)
+                title = "搜索框"
+                val mSearchView = findViewById<SearchView>(R.id.searchView)
+                val mListView = findViewById<ListView>(R.id.listView)
+                val mDatas                = arrayOf("aaa", "bbb", "ccc", "airsaid")
+                mListView.adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, mDatas)
+                mListView.isTextFilterEnabled = true
+
+                mSearchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+                    override fun onQueryTextChange(newText: String?): Boolean {
+                        if (!TextUtils.isEmpty(newText)){
+                            mListView.setFilterText(newText)
+                        }else{
+                            mListView.clearTextFilter()
+                        }
+                        return false
+                    }
+
+                    override fun onQueryTextSubmit(query: String?): Boolean {
+                        return false
+                    }
+
+                })
+
+            }
+            "tabhosttab"->{
+                setContentView(R.layout.we_sub_tabhosttab)
+                title = "选项卡TabHost"
+                val mTabHost = findViewById<TabHost>(R.id.mytabhost)
+                mTabHost.setup()
+                val tab1 = mTabHost.newTabSpec("0")
+                tab1.setIndicator("红色")
+                tab1.setContent(R.id.widget_layout_red)
+                mTabHost.addTab(tab1)
+                mTabHost.addTab(mTabHost.newTabSpec("1").setIndicator("绿色").setContent(R.id.widget_layout_green))
+                mTabHost.addTab(mTabHost.newTabSpec("2").setIndicator("蓝色").setContent(R.id.widget_layout_blue))
+            }
+            "recyclerview"->{
+                setContentView(R.layout.we_sub_recyclerview)
+                title = "recyclerview"
+
+                val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+                // 设置管理器
+                val layoutManager = GridLayoutManager(this,3)
+                mRecyclerView.layoutManager = layoutManager
+                // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+                mRecyclerView.setHasFixedSize(true)
+
+//                var mAdapter: RecyclerViewAdapter? = null
+                val mDatas = ArrayList<String>()
+
+                for (i in 0..60) {
+                    mDatas.add(i, (i + 1).toString() + "")
+                }
+                val mAdapter = RecyclerViewAdapter(this, mDatas)
+                mRecyclerView.adapter = mAdapter
+
+                val hengxiang = findViewById<Button>(R.id.recyclerview_hengxiang)
+                var pailie = 1
+                hengxiang.setOnClickListener {
+                    if(pailie ==1){
+                        layoutManager.orientation = LinearLayoutManager.HORIZONTAL
+                        pailie =2
+                    } else{
+                        layoutManager.orientation = LinearLayoutManager.VERTICAL
+                        pailie =1
+                    }
+
+                }
+            }
+            "recyclerview_divider"->{
+                setContentView(R.layout.we_sub_recyclerview_divider)
+                title = "recyclerview_divider"
+
+                val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_divider)
+                // 设置管理器
+                val layoutManager = LinearLayoutManager(this)
+                mRecyclerView.layoutManager = layoutManager
+
+                // 自定义分割线
+                val itemDecoration = RecyclerViewItemDivider(this, R.drawable.recyclerview_item_divider)
+                mRecyclerView.addItemDecoration(itemDecoration)
+                // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+                mRecyclerView.setHasFixedSize(true)
+
+//                var mAdapter: RecyclerViewAdapter? = null
+                val mDatas = ArrayList<String>()
+
+                for (i in 0..60) {
+                    mDatas.add(i, (i + 1).toString() + "")
+                }
+                val mAdapter = RecyclerViewAdapter_divider(this, mDatas)
+                mRecyclerView.adapter = mAdapter
+            }
+            "recyclerview_click"->{
+                setContentView(R.layout.we_sub_recyclerview_click)
+                title = "recyclerview点击/长按事件"
+
+                val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_click)
+                // 设置管理器
+                val layoutManager = LinearLayoutManager(this)
+                mRecyclerView.layoutManager = layoutManager
+
+                // 自定义分割线
+                val itemDecoration = RecyclerViewItemDivider(this, R.drawable.recyclerview_item_divider)
+                mRecyclerView.addItemDecoration(itemDecoration)
+                // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+                mRecyclerView.setHasFixedSize(true)
+
+                val mDatas = ArrayList<String>()
+
+                for (i in 0..60) {
+                    mDatas.add(i, (i + 1).toString() + "")
+                }
+                val mAdapter = RecyclerViewAdapter_click(this, mDatas)
+                mAdapter.setOnItemClickListener(object :RecyclerViewAdapter_click.OnItemClickListener {
+                    override fun onClick(parent: View?, position: Int) {
+                        Toast.makeText(
+                            this@we_sub, "点击了第" + (position + 1) + "项",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                })
+                mAdapter.setOnItemLongClickListener(object :RecyclerViewAdapter_click.OnItemLongClickListener{
+                    override fun onLongClick(parent: View?, position: Int): Boolean {
+                        Toast.makeText(
+                            this@we_sub, "长压了第" + (position + 1) + "项",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        return true
+
+                    }
+
+                })
+
+                mRecyclerView.adapter = mAdapter
+            }
             else ->{
             }
         }
@@ -1016,6 +1183,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         }
     }
     override fun onNothingSelected(adapterView: AdapterView<*>) {}
+
 }
 
 

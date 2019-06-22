@@ -251,4 +251,44 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"numberpicker")
         startActivity(intent)
     }
+    fun we_sub_clock(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"clock")
+        startActivity(intent)
+    }
+    fun we_sub_calendarview_chronnmeter(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"calendarview_chronnmeter")
+        startActivity(intent)
+    }
+    fun we_sub_scrollview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"scrollview")
+        startActivity(intent)
+    }
+    fun we_sub_searchview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"searchview")
+        startActivity(intent)
+    }
+    fun we_sub_tabhosttab(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"tabhosttab")
+        startActivity(intent)
+    }
+    fun we_sub_recyclerview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"recyclerview")
+        startActivity(intent)
+    }
+    fun we_sub_recyclerview_divider(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"recyclerview_divider")
+        startActivity(intent)
+    }
+    fun we_sub_recyclerview_click(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"recyclerview_click")
+        startActivity(intent)
+    }
 }
