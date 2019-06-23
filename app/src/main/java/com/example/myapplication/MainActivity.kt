@@ -291,4 +291,24 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"recyclerview_click")
         startActivity(intent)
     }
+    fun we_sub_recyclerview_apply(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"recyclerview_apply")
+        startActivity(intent)
+    }
+    fun we_sub_recyclerview_header_and_footer(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"recyclerview_header_and_footer")
+        startActivity(intent)
+    }
+    fun we_sub_viewpager(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"viewpager")
+        startActivity(intent)
+    }
+    fun we_sub_viewpager_tabhost(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"viewpager_tabhost")
+        startActivity(intent)
+    }
 }

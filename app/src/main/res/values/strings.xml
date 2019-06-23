@@ -57,7 +57,7 @@
     <string name="button53">RecyclerView分割线</string>
     <string name="button54">RecyclerView点击事件</string>
     <string name="button55">RecyclerView数据动态更新</string>
-    <string name="button56">完善RecyclerView，添加首尾视图</string>
+    <string name="button56">RecyclerView首尾视图</string>
     <string name="button57">ViewPager实现引导页</string>
     <string name="button58">ViewPager完成TabHost效果</string>
     <string name="button59">CardView卡片式布局</string>

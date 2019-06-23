@@ -23,6 +23,9 @@ import android.widget.MultiAutoCompleteTextView
 import android.widget.ExpandableListView
 import android.graphics.drawable.AnimationDrawable
 import android.os.SystemClock
+import android.support.v4.view.PagerTabStrip
+import android.support.v4.view.ViewPager
+import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
@@ -37,7 +40,7 @@ import android.widget.ImageView
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
-class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
+class we_sub : AppCompatActivity(){
 
     object ViewSwitchers {
         var screenNo = -1
@@ -583,8 +586,48 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                 // 为Spinner设置Adapter
                 mBookSpinner.adapter = adapter
                 // 为Spinner设置选中事件监听器
-                mProSpinner.onItemSelectedListener = this
-                mBookSpinner.onItemSelectedListener = this
+//                mProSpinner.onItemSelectedListener = this
+                mBookSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        val content = parent!!.getItemAtPosition(position).toString()
+                        when (parent.id) {
+                            R.id.spin_one -> Toast.makeText(
+                                this@we_sub, "选择的专业是：$content",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            R.id.spin_two -> Toast.makeText(
+                                this@we_sub, "选择的教材是：$content",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            else -> {
+                            }
+                        }
+                    }
+
+                }
+                mProSpinner.onItemSelectedListener = object :AdapterView.OnItemSelectedListener{
+                    override fun onNothingSelected(parent: AdapterView<*>?) {}
+
+                    override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                        val content = parent!!.getItemAtPosition(position).toString()
+                        when (parent.id) {
+                            R.id.spin_one -> Toast.makeText(
+                                this@we_sub, "选择的专业是：$content",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            R.id.spin_two -> Toast.makeText(
+                                this@we_sub, "选择的教材是：$content",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            else -> {
+                            }
+                        }
+                    }
+
+                }
+
             }
             "autocomplete_textview"->{
                 setContentView(R.layout.we_sub_autocomplete_textview)
@@ -861,7 +904,7 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
                         imageView.scaleType = ScaleType.FIT_XY
                         imageView.layoutParams = FrameLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-                        )
+                        ) as ViewGroup.LayoutParams?
                         return imageView
                     }
                 })
@@ -1152,6 +1195,148 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
 
                 mRecyclerView.adapter = mAdapter
             }
+            "recyclerview_apply"->{
+                setContentView(R.layout.we_sub_recyclerview_apply)
+                title = "recyclerview数据更新"
+                val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_apply)
+                // 设置管理器
+                val layoutManager = LinearLayoutManager(this)
+                mRecyclerView.layoutManager = layoutManager
+
+                // 自定义分割线
+                val itemDecoration = RecyclerViewItemDivider(this, R.drawable.recyclerview_item_divider)
+                mRecyclerView.addItemDecoration(itemDecoration)
+                // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+                mRecyclerView.setHasFixedSize(true)
+
+                val mDatas = ArrayList<String>()
+
+                for (i in 0..60) {
+                    mDatas.add(i, (i + 1).toString() + "")
+                }
+                val mAdapter = RecyclerViewAdapter_apply(this, mDatas)
+                mAdapter.setOnItemClickListener(object :RecyclerViewAdapter_apply.OnItemClickListener {
+                    override fun onClick(parent: View?, position: Int) {
+                        mAdapter.addData(position + 1)
+                    }
+
+                })
+                mAdapter.setOnItemLongClickListener(object :RecyclerViewAdapter_apply.OnItemLongClickListener{
+                    override fun onLongClick(parent: View?, position: Int): Boolean {
+                        mAdapter.removeData(position)
+                        return true
+                    }
+
+                })
+
+                mRecyclerView.adapter = mAdapter
+
+                mRecyclerView.itemAnimator = DefaultItemAnimator()
+            }
+            "recyclerview_header_and_footer"->{
+                setContentView(R.layout.we_sub_recyclerview_header_and_footer)
+                title = "recyclerview添加首尾"
+                val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview_header_and_footer)
+                // 设置管理器
+                val layoutManager = LinearLayoutManager(this)
+                mRecyclerView.layoutManager = layoutManager
+
+                // 自定义分割线
+                val itemDecoration = RecyclerViewItemDivider(this, R.drawable.recyclerview_item_divider)
+                mRecyclerView.addItemDecoration(itemDecoration)
+                // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
+                mRecyclerView.setHasFixedSize(true)
+
+                val mDatas = ArrayList<String>()
+
+                for (i in 0..60) {
+                    mDatas.add(i, (i + 1).toString() + "")
+                }
+                val mAdapter = RecyclerViewAdapter_header_and_footer(this, mDatas)
+                mAdapter.setOnItemClickListener(object :RecyclerViewAdapter_header_and_footer.OnItemClickListener {
+                    override fun onClick(parent: View?, position: Int) {
+                        mAdapter.addData(position + 1)
+                    }
+
+                })
+                mAdapter.setOnItemLongClickListener(object :RecyclerViewAdapter_header_and_footer.OnItemLongClickListener{
+                    override fun onLongClick(parent: View?, position: Int): Boolean {
+                        mAdapter.removeData(position)
+                        return true
+                    }
+
+                })
+
+                mRecyclerView.adapter = mAdapter
+
+                mRecyclerView.itemAnimator = DefaultItemAnimator()
+            }
+            "viewpager"->{
+                setContentView(R.layout.we_sub_viewpager)
+                title = "ViewPager快速实现引导页"
+                val mViewPager = findViewById<ViewPager>(R.id.view_pager)
+                val mPageList = ArrayList<View>()
+                val inflater = layoutInflater
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager1,null,false))
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager2,null,false))
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager3,null,false))
+                val mAdapter = ViewPagerAdapter(mPageList)
+                mViewPager.adapter = mAdapter
+                mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+                    override fun onPageSelected(p0: Int) {
+                        Toast.makeText(
+                            this@we_sub, "第" + (p0 + 1) + "页",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
+
+                    }
+
+                    override fun onPageScrollStateChanged(p0: Int) {
+
+                    }
+
+                })
+            }
+            "viewpager_tabhost"->{
+                setContentView(R.layout.we_sub_viewpager_tabhost)
+                title = "ViewPager实现TabHost"
+                val mViewPager = findViewById<ViewPager>(R.id.view_pager_tabhost)
+                val mPagerTabStrip = findViewById<PagerTabStrip>(R.id.view_pager_tabstrip)
+                val mPageList = ArrayList<View>()
+                val inflater = layoutInflater
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager1,null,false))
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager2,null,false))
+                mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager3,null,false))
+                val mTitleLists = ArrayList<String>()
+                mTitleLists.add("第一项")
+                mTitleLists.add("第二项")
+                mTitleLists.add("第三项")
+
+                val mAdapter = ViewPagerAdapter_tabhost(mPageList,mTitleLists)
+                mViewPager.adapter = mAdapter
+
+                mPagerTabStrip.tabIndicatorColor =Color.BLUE
+                mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+                    override fun onPageSelected(p0: Int) {
+                        Toast.makeText(
+                            this@we_sub, "第" + (p0 + 1) + "页",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+
+                    override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
+
+                    }
+
+                    override fun onPageScrollStateChanged(p0: Int) {
+
+                    }
+
+                })
+            }
             else ->{
             }
         }
@@ -1167,22 +1352,6 @@ class we_sub : AppCompatActivity(), AdapterView.OnItemSelectedListener {
         // 消息提示
         Toast.makeText(this, "系统的屏幕方向改变为：$ori", Toast.LENGTH_SHORT).show()
     }
-    override fun onItemSelected(parent: AdapterView<*>, view: View, position: Int, id: Long) {
-        val content = parent.getItemAtPosition(position).toString()
-        when (parent.id) {
-            R.id.spin_one -> Toast.makeText(
-                this@we_sub, "选择的专业是：$content",
-                Toast.LENGTH_SHORT
-            ).show()
-            R.id.spin_two -> Toast.makeText(
-                this@we_sub, "选择的教材是：$content",
-                Toast.LENGTH_SHORT
-            ).show()
-            else -> {
-            }
-        }
-    }
-    override fun onNothingSelected(adapterView: AdapterView<*>) {}
 
 }
 
