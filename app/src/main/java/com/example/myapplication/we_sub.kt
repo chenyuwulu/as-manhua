@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
@@ -22,13 +23,13 @@ import android.widget.SimpleAdapter
 import android.widget.MultiAutoCompleteTextView
 import android.widget.ExpandableListView
 import android.graphics.drawable.AnimationDrawable
+import android.os.Handler
 import android.os.SystemClock
 import android.support.v4.view.PagerTabStrip
 import android.support.v4.view.ViewPager
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import android.support.v4.widget.SwipeRefreshLayout
+import android.support.v7.widget.*
+import android.util.Log
 import android.widget.SeekBar
 import android.widget.ViewSwitcher
 import com.example.myapplication.we_sub.ViewSwitchers.NUMBER_PER_SCREEN
@@ -37,6 +38,7 @@ import android.widget.ImageSwitcher
 import android.view.ViewGroup
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
+import android.widget.SearchView
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -54,7 +56,6 @@ class we_sub : AppCompatActivity(){
     private var mAdapter: ViewSwitcherBaseAdapter? = null
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
-
     @SuppressLint("InflateParams")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -1101,7 +1102,7 @@ class we_sub : AppCompatActivity(){
                 val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
                 // 设置管理器
                 val layoutManager = GridLayoutManager(this,3)
-                mRecyclerView.layoutManager = layoutManager
+                mRecyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
                 // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
                 mRecyclerView.setHasFixedSize(true)
 
@@ -1337,6 +1338,100 @@ class we_sub : AppCompatActivity(){
 
                 })
             }
+            "cardview"->{
+                setContentView(R.layout.we_sub_cardview)
+                title = "CardView简单实现卡片式布局"
+                val mCardView = findViewById<CardView>(R.id.cardview)
+                mCardView.radius = 20F
+                mCardView.cardElevation = Color.BLUE.toFloat()
+                mCardView.cardElevation = 10F
+                mCardView.setContentPadding(10,10,10,10)
+
+            }
+            "swiperefreshlayout"->{
+                setContentView(R.layout.we_sub_swiperefreshlayout)
+                title = "SwipeRefreshLayout下拉刷新"
+                val mSwipeRefreshLayout = findViewById<SwipeRefreshLayout>(R.id.container_swipe)
+                val mContentTv = findViewById<TextView>(R.id.content_tv)
+
+                mSwipeRefreshLayout.setColorSchemeResources(
+                    android.R.color.holo_blue_light,
+                    android.R.color.holo_red_light,
+                    android.R.color.holo_orange_light,
+                    android.R.color.holo_green_light
+                )
+                mSwipeRefreshLayout.setOnRefreshListener(object :SwipeRefreshLayout.OnRefreshListener{
+                    override fun onRefresh() {
+                        mContentTv.text = "正在刷新，请稍后。。。"
+                        Handler().run {
+                            mContentTv.text = "刷新完毕！"
+                            mSwipeRefreshLayout.isRefreshing = false
+                        }
+                    }
+                })
+
+            }
+            "activity_rumen"->{
+                setContentView(R.layout.we_sub_activity_rumen)
+                title = "Activity入门"
+            }
+            "activity_on_off"->{
+                setContentView(R.layout.we_sub_activity_on_off)
+                title = "Activity启动和关闭"
+
+                val startBtn = findViewById<Button>(R.id.start_btn)
+                startBtn.setOnClickListener {
+                    val intent = Intent(this,we_sub_activity_on_off_second::class.java)
+                    startActivity(intent)
+                }
+            }
+            "activity_life_cycle"->{
+                setContentView(R.layout.we_sub_activity_life_cycle)
+                title = "Activity状态和生命周期方法"
+
+                val mStartActivityBtn = findViewById<Button>(R.id.start_normal_activity_btn)
+                val mQutiActivityBtn = findViewById<Button>(R.id.quit_activity_btn)
+
+                mStartActivityBtn.setOnClickListener { v ->
+                    when (v.id) {
+                        R.id.start_normal_activity_btn -> {
+                            // 启动普通的Activity
+                            val intent = Intent(this@we_sub, we_sub_activity_life_cycle_second::class.java)
+                            startActivity(intent)
+                        }
+                        R.id.quit_activity_btn -> {
+                            // 结束该Activity
+                            Toast.makeText(
+                                this@we_sub,
+                                "为什么结束不了可以思考下原理(〜￣△￣)〜",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            //下面这个不是废代码，是因为我的项目魔改后失效了，可以明白为何失效就算理解了
+//                            this@we_sub.finish()
+                        }
+                        else -> {
+                        }
+                    }
+                }
+                mQutiActivityBtn.setOnClickListener { v ->
+                    when (v.id) {
+                        R.id.start_normal_activity_btn -> {
+                            // 启动普通的Activity
+                            val intent = Intent(this@we_sub, we_sub_activity_life_cycle_second::class.java)
+                            startActivity(intent)
+                        }
+                        R.id.quit_activity_btn -> {
+                            this@we_sub.finish()
+                        }
+                        else -> {
+                        }
+                    }
+                }
+            }
+            "activity_save_h_or_v"->{
+                setContentView(R.layout.we_sub_activity_save_h_or_v)
+                title = "Activity数据保存和横竖屏切换"
+            }
             else ->{
             }
         }
@@ -1352,7 +1447,34 @@ class we_sub : AppCompatActivity(){
         // 消息提示
         Toast.makeText(this, "系统的屏幕方向改变为：$ori", Toast.LENGTH_SHORT).show()
     }
+    override fun onStart() {
+        super.onStart()
+        Log.d("这里触发了", "onStart()")
+    }
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("这里触发了", "onRestart()")
+    }
 
+    override fun onResume() {
+        super.onResume()
+        Log.d("这里触发了", "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("这里触发了", "onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("这里触发了", "onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("这里触发了", "onDestroy()")
+    }
 }
 
 

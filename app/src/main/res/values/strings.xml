@@ -63,6 +63,9 @@
     <string name="button59">CardView卡片式布局</string>
     <string name="button60">SwipeRefreshLayout下拉刷新</string>
     <string name="button61">Activity入门</string>
+    <string name="button62">Activity启动和关闭</string>
+    <string name="button63">生命周期</string>
+    <string name="button64">Activity数据保存和横竖屏切换</string>
     <string name="title_activity_tabbar">tabbar</string>
     <string name="title_home">标题左</string>
     <string name="title_dashboard">标题中</string>

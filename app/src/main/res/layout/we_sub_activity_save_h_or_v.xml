@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TableLayout android:layout_width="wrap_content" android:layout_height="wrap_content">
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                      android:text="这里是展示如何在切换横竖屏幕的时候，保存当前的activity数据"
+                      android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                      android:text="1.直接配置清单写一句保存"
+                      android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                      android:text="android:configChanges=orientation丨keyboardHidden丨screenSize"
+                      android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                      android:text="2.直接定死不给切换，比如锁定竖屏"
+                      android:layout_height="wrap_content"/>
+        </TableRow>
+        <TableRow>
+            <TextView android:layout_width="wrap_content"
+                      android:text="3.kotlin这边获取到改变后切换不同的布局"
+                      android:layout_height="wrap_content"/>
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

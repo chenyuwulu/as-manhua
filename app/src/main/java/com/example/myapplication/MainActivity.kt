@@ -311,4 +311,36 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"viewpager_tabhost")
         startActivity(intent)
     }
+    fun we_sub_cardview(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"cardview")
+        startActivity(intent)
+    }
+    fun we_sub_swiperefreshlayout(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"swiperefreshlayout")
+        startActivity(intent)
+    }
+    fun we_sub_activity_rumen(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_rumen")
+        startActivity(intent)
+    }
+    fun we_sub_activity_on_off(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_on_off")
+        startActivity(intent)
+    }
+    fun we_sub_activity_life_cycle(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_life_cycle")
+        startActivity(intent)
+    }
+
+    fun we_sub_activity_save_h_or_v(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_save_h_or_v")
+        startActivity(intent)
+    }
+
 }

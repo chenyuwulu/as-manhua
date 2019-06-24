@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView android:layout_width="wrap_content"
+              android:text="没什么好说的了，本项目已熟知创建和修改activity，所以这里无需举例"
+              android:layout_height="wrap_content"/>
+</LinearLayout>
