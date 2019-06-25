@@ -1,6 +1,7 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
+import android.content.ComponentName
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
@@ -36,6 +37,7 @@ import com.example.myapplication.we_sub.ViewSwitchers.NUMBER_PER_SCREEN
 import com.example.myapplication.we_sub.ViewSwitchers.screenCount
 import android.widget.ImageSwitcher
 import android.view.ViewGroup
+import android.webkit.WebView
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
 import android.widget.SearchView
@@ -56,7 +58,7 @@ class we_sub : AppCompatActivity(){
     private var mAdapter: ViewSwitcherBaseAdapter? = null
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
-    @SuppressLint("InflateParams")
+    @SuppressLint("InflateParams", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
@@ -1431,6 +1433,59 @@ class we_sub : AppCompatActivity(){
             "activity_save_h_or_v"->{
                 setContentView(R.layout.we_sub_activity_save_h_or_v)
                 title = "Activity数据保存和横竖屏切换"
+            }
+            "activity_stack_start"->{
+                setContentView(R.layout.we_sub_activity_stack_start)
+                title = "Activity任务栈和启动模式"
+            }
+            "intent"->{
+                setContentView(R.layout.we_sub_intent)
+                title = "四大组件的纽带——Intent"
+            }
+            "intent_property_top"->{
+                setContentView(R.layout.we_sub_intent_property_top)
+                title = "Intent 属性详解（上）"
+
+                val w_intent_property_top_webview = findViewById<WebView>(R.id.intent_property_top_webview)
+                w_intent_property_top_webview.settings.javaScriptEnabled = true
+                w_intent_property_top_webview.settings.domStorageEnabled = true
+                w_intent_property_top_webview.loadUrl("https://blog.csdn.net/cqkxzsxy/article/details/78282448")
+            }
+            "intent_property_bottom"->{
+                setContentView(R.layout.we_sub_intent_property_bottom)
+                title = "Intent 属性详解（下）"
+
+                val w_intent_property_bottom_webview = findViewById<WebView>(R.id.intent_property_bottom_webview)
+                w_intent_property_bottom_webview.settings.javaScriptEnabled = true
+                w_intent_property_bottom_webview.settings.domStorageEnabled = true
+                w_intent_property_bottom_webview.loadUrl("https://blog.csdn.net/cqkxzsxy/article/details/78293356")
+            }
+            "activity_transmit"->{
+
+            }
+            "activity_return"->{
+
+            }
+            "activity_data_sub"->{
+
+            }
+            "fragment"->{
+
+            }
+            "fragment_play"->{
+
+            }
+            "fragment_life_cycle"->{
+
+            }
+            "fragment_add_delete"->{
+
+            }
+            "fragment_display"->{
+
+            }
+            "fragment_back"->{
+
             }
             else ->{
             }

@@ -336,11 +336,74 @@ class MainActivity : AppCompatActivity() {
         intent.putExtra(ojbk.we_sub,"activity_life_cycle")
         startActivity(intent)
     }
-
     fun we_sub_activity_save_h_or_v(view: View){
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_save_h_or_v")
         startActivity(intent)
     }
-
+    fun we_sub_activity_stack_start(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_stack_start")
+        startActivity(intent)
+    }
+    fun we_sub_intent(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"intent")
+        startActivity(intent)
+    }
+    fun we_sub_intent_property_top(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"intent_property_top")
+        startActivity(intent)
+    }
+    fun we_sub_intent_property_bottom(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"intent_property_bottom")
+        startActivity(intent)
+    }
+    fun we_sub_activity_transmit(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_transmit")
+        startActivity(intent)
+    }
+    fun we_sub_activity_return(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_return")
+        startActivity(intent)
+    }
+    fun we_sub_activity_data_sub(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"activity_data_sub")
+        startActivity(intent)
+    }
+    fun we_sub_fragment(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment")
+        startActivity(intent)
+    }
+    fun we_sub_fragment_play(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment_play")
+        startActivity(intent)
+    }
+    fun we_sub_fragment_life_cycle(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment_life_cycle")
+        startActivity(intent)
+    }
+    fun we_sub_fragment_add_delete(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment_add_delete")
+        startActivity(intent)
+    }
+    fun we_sub_fragment_display(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment_display")
+        startActivity(intent)
+    }
+    fun we_sub_fragment_back(view: View){
+        val intent = Intent(this,we_sub::class.java)
+        intent.putExtra(ojbk.we_sub,"fragment_back")
+        startActivity(intent)
+    }
 }

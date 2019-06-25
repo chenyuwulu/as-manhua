@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <TableRow
+                android:layout_marginBottom="20dp">
+            <TextView
+                    android:textSize="20dp"
+                    android:textColor="#66ccff"
+                    android:layout_width="wrap_content"
+                    android:text="任务栈是activity的堆叠容器"
+            />
+        </TableRow>
+        <TableRow
+                android:layout_marginBottom="20dp">
+            <TextView
+                    android:textSize="20dp"
+                    android:textColor="#66ccff"
+                    android:layout_width="wrap_content"
+                    android:text="通过以下的Android启动模式可以调整activity任务栈模式"
+            />
+        </TableRow>
+        <TableRow
+        android:layout_marginTop="10dp" android:layout_marginBottom="10dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="在standard模式下，每当启动一个新的Activity，它就会进入任务栈，并处于栈顶的位置，对于使用standard模式的Activity，系统不会判断该Activity在栈中是否存在，每次启动都会创建一个新的实例"
+            />
+        </TableRow>
+        <TableRow
+                android:layout_marginTop="10dp" android:layout_marginBottom="10dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="singleTop模式与standard类似，不同的是，当启动的Activity已经位于栈顶时，则直接使用它不创建新的实例。如果启动的Activity没有位于栈顶时，则创建一个新的实例位于栈顶"
+            />
+        </TableRow>
+        <TableRow
+                android:layout_marginTop="10dp" android:layout_marginBottom="10dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="singleTask模式，当Activity 的启动模式指定为singleTask，每次启动该Activity时，系统首先会检查栈中是否存在该活动的实例，如果发现已经存在则直接使用该实例， 并将当前Activity之上的所有Activity出栈，如果没有发现则创建一个新的实例"
+            />
+        </TableRow>
+        <TableRow
+                android:layout_marginTop="10dp" android:layout_marginBottom="10dp">
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:text="singlelnstance模式加载Activity时，无论从哪个任务栈中启动该Activity，只会创建一个Activity实例，并且会使用一个全新的任务栈来装载该Activity实例"
+            />
+        </TableRow>
+    </TableLayout>
+</LinearLayout>

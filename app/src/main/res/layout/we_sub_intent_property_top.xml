@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <!--<TableLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+        <!--<TableRow-->
+                <!--android:layout_marginBottom="20dp">-->
+            <!--<TextView-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textColor="#66ccff"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:text="懒得在这里写了，直接卸载kotlin代码的注释上更方便"-->
+            <!--/>-->
+        <!--</TableRow>-->
+    <!--</TableLayout>-->
+    <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/intent_property_top_webview"
+    />
+</LinearLayout>
