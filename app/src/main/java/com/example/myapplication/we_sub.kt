@@ -907,7 +907,7 @@ class we_sub : AppCompatActivity(){
                         imageView.scaleType = ScaleType.FIT_XY
                         imageView.layoutParams = FrameLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-                        ) as ViewGroup.LayoutParams?
+                        )
                         return imageView
                     }
                 })
@@ -1104,7 +1104,7 @@ class we_sub : AppCompatActivity(){
                 val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
                 // 设置管理器
                 val layoutManager = GridLayoutManager(this,3)
-                mRecyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
+                mRecyclerView.layoutManager = layoutManager
                 // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
                 mRecyclerView.setHasFixedSize(true)
 
@@ -1461,7 +1461,28 @@ class we_sub : AppCompatActivity(){
                 w_intent_property_bottom_webview.loadUrl("https://blog.csdn.net/cqkxzsxy/article/details/78293356")
             }
             "activity_transmit"->{
+                setContentView(R.layout.we_sub_activity_transmit)
+                title = "Activity数据传递"
 
+                val mNameEt = findViewById<EditText>(R.id.name_et)
+                val mPasswordEt = findViewById<EditText>(R.id.password_et)
+                val mRegisterBtn = findViewById<Button>(R.id.register_btn)
+                val mMaleRb = findViewById<RadioButton>(R.id.male_rb)
+                val mFemaleRb = findViewById<RadioButton>(R.id.female_rb)
+
+                mRegisterBtn.setOnClickListener {
+                    val intent = Intent(this, we_sub_activity_transmit_second::class.java)
+                    intent.putExtra("name",mNameEt.text.toString().trim())
+                    intent.putExtra("password",mPasswordEt.text.toString().trim())
+                    var str = ""
+                    if(mMaleRb.isChecked){
+                        str = "男"
+                    }else if(mFemaleRb.isChecked){
+                        str = "女"
+                    }
+                    intent.putExtra("sex", str)
+                    startActivity(intent)
+                }
             }
             "activity_return"->{
 
