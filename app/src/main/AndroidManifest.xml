@@ -37,6 +37,8 @@
         </activity>
         <activity android:name=".we_sub_activity_on_off_second"></activity>
         <activity android:name=".we_sub_activity_life_cycle_second"></activity>
+        <activity android:name=".we_sub_shopactivity"
+                  android:label="购买装备"/>
     </application>
 
 </manifest>

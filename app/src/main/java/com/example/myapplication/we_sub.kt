@@ -1,7 +1,6 @@
 package com.example.myapplication
 
 import android.annotation.SuppressLint
-import android.content.ComponentName
 import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
@@ -58,6 +57,15 @@ class we_sub : AppCompatActivity(){
     private var mAdapter: ViewSwitcherBaseAdapter? = null
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
+
+    //82课时的变量
+    private var mLifePb: ProgressBar? = null
+    private var mAttackPb: ProgressBar? = null
+    private var mSpeedPb: ProgressBar? = null
+    private var mLifeTV: TextView? = null
+    private var mAttackTV: TextView? = null
+    private var mSpeedTV: TextView? = null
+
     @SuppressLint("InflateParams", "SetJavaScriptEnabled")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -1485,7 +1493,25 @@ class we_sub : AppCompatActivity(){
                 }
             }
             "activity_return"->{
+                setContentView(R.layout.we_sub_activity_result)
+                title = "Activity数据回传"
 
+                val mBuyBtn = findViewById<Button>(R.id.buy_btn)
+                mLifeTV = findViewById(R.id.life_progress_tv)
+                mAttackTV = findViewById(R.id.attack_progress_tv)
+                mSpeedTV = findViewById(R.id.speed_progress_tv)
+                mLifePb = findViewById(R.id.life_pb)
+                mAttackPb = findViewById(R.id.attack_pb)
+                mSpeedPb = findViewById(R.id.speed_pb)
+
+                mLifePb?.max = 100
+                mAttackPb?.max = 100
+                mSpeedPb?.max = 100
+
+                mBuyBtn.setOnClickListener {
+                    val intent = Intent(this,we_sub_shopactivity::class.java)
+                    startActivityForResult(intent,1)
+                }
             }
             "activity_data_sub"->{
 
@@ -1550,6 +1576,29 @@ class we_sub : AppCompatActivity(){
     override fun onDestroy() {
         super.onDestroy()
         Log.d("这里触发了", "onDestroy()")
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (data != null) {
+            if (resultCode == 1) {
+                if (requestCode == 1) {
+                    val equipment = data.extras
+                    //更新ProgressBar的值
+                    val lifeProgress = mLifePb?.progress
+                    val attackProgress = mAttackPb?.progress
+                    val speedProgress = mSpeedPb?.progress
+
+                    mLifePb?.progress = lifeProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_LIFE)
+                    mAttackPb?.progress = attackProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_ATTACK)
+                    mSpeedPb?.progress = speedProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_SPEED)
+                    mLifeTV?.text=mLifePb!!.progress.toString()
+                    mAttackTV?.text=mAttackPb!!.progress.toString()
+                    mSpeedTV?.text= mSpeedPb!!.progress.toString()
+                }
+            }
+        }
     }
 }
 
