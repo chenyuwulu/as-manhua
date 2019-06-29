@@ -66,7 +66,7 @@ class we_sub : AppCompatActivity(){
     private var mAttackTV: TextView? = null
     private var mSpeedTV: TextView? = null
 
-    @SuppressLint("InflateParams", "SetJavaScriptEnabled")
+    @SuppressLint("InflateParams", "SetJavaScriptEnabled", "CommitTransaction")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val message = intent.getStringExtra(MainActivity.ojbk.we_sub)
@@ -1514,25 +1514,143 @@ class we_sub : AppCompatActivity(){
                 }
             }
             "activity_data_sub"->{
+                setContentView(R.layout.we_sub_activity_data_sub)
+                title = "Activity间数据传递方法汇总"
 
+                val w_intent_property_top_webview = findViewById<WebView>(R.id.activity_data_sub_webview)
+                w_intent_property_top_webview.settings.javaScriptEnabled = true
+                w_intent_property_top_webview.settings.domStorageEnabled = true
+                w_intent_property_top_webview.loadUrl("https://blog.csdn.net/cqkxzsxy/article/details/78339914")
             }
             "fragment"->{
-
+                //这里就是建立fragment,并无任何使用的一个判断分支，根据教学文档来
             }
             "fragment_play"->{
+                setContentView(R.layout.we_sub_fragment_play)
+                title = "Fragment使用"
+                //这里不是用静态加载，直接使用动态加载
 
+                val fragmentManager = supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                val firstFragment = FirstFragment()
+                fragmentTransaction.add(R.id.fragment_container,firstFragment)
+                fragmentTransaction.commit()
             }
             "fragment_life_cycle"->{
-
+                setContentView(R.layout.we_sub_fragment_life_cycle)
+                title = "Fragment生命周期"
             }
             "fragment_add_delete"->{
+                setContentView(R.layout.we_sub_fragment_add_delete)
+                title = "Fragment添加，修改，删除"
+                val mAddBtn = findViewById<Button>(R.id.add_btn)
+                val mRemoveBtn  = findViewById<Button>(R.id.remove_btn)
+                val mReplaceBtn  = findViewById<Button>(R.id.replace_btn)
+                val mSecondFragment = we_sub_fragment_add_delete_second()
+                val mThirdFragment = we_sub_fragment_add_delete_third()
+
+                mAddBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+
+                    // 向容器内加入Fragment
+                    if (!mSecondFragment.isAdded) {
+                        fragmentTransaction.add(R.id.fragment_container1, mSecondFragment)
+                    }
+                    if (!mThirdFragment.isAdded) {
+                        fragmentTransaction.add(R.id.fragment_container2, mThirdFragment)
+                    }
+                    fragmentTransaction.commit()
+                }
+                mRemoveBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.remove(mSecondFragment)
+                    fragmentTransaction.commit()
+                }
+                mReplaceBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+
+                    if (!mSecondFragment.isAdded) {
+                        fragmentTransaction.replace(R.id.fragment_container2, mSecondFragment)
+                    }
+                    fragmentTransaction.commit()
+                }
 
             }
             "fragment_display"->{
+                //显示和隐藏只是可见不可见，实际操作实用性极低，尽量使用绑定和解绑
+                //这里只展示绑定和解绑
+                setContentView(R.layout.we_sub_fragment_display)
+                title = "Fragment显示和隐藏、绑定和解绑"
 
+                val mAttachBtn  = findViewById<Button>(R.id.attach_btn)
+                val mDetachBtn  = findViewById<Button>(R.id.detach_btn)
+                val mDemoFragment = we_sub_fragment_display_show_hide()
+                val fragmentManager = supportFragmentManager
+                val fragmentTransaction = fragmentManager.beginTransaction()
+                fragmentTransaction.add(R.id.fragment_container_display,mDemoFragment)
+                fragmentTransaction.commit()
+
+                mAttachBtn.setOnClickListener {
+                    val fragmentManager_mAttachBtn = supportFragmentManager
+                    val fragmentTransaction_mAttachBtn = fragmentManager_mAttachBtn.beginTransaction()
+                    if (mDemoFragment.isDetached) {
+                        fragmentTransaction_mAttachBtn.attach(mDemoFragment)
+                    }
+                    fragmentTransaction_mAttachBtn.commit()
+                }
+                mDetachBtn.setOnClickListener {
+                    val fragmentManager_mAttachBtn = supportFragmentManager
+                    val fragmentTransaction_mAttachBtn = fragmentManager_mAttachBtn.beginTransaction()
+                    if (!mDemoFragment.isDetached) {
+                        fragmentTransaction_mAttachBtn.detach(mDemoFragment)
+                    }
+                    fragmentTransaction_mAttachBtn.commit()
+                }
             }
             "fragment_back"->{
+                setContentView(R.layout.we_sub_fragment_add_delete)
+                title = "Fragment回退栈及弹出方法"
 
+                val mAddBtn = findViewById<Button>(R.id.add_btn)
+                val mRemoveBtn  = findViewById<Button>(R.id.remove_btn)
+                val mReplaceBtn  = findViewById<Button>(R.id.replace_btn)
+                val mSecondFragment = we_sub_fragment_add_delete_second()
+                val mThirdFragment = we_sub_fragment_add_delete_third()
+
+                mAddBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+
+                    // 向容器内加入Fragment
+                    if (!mSecondFragment.isAdded) {
+                        fragmentTransaction.add(R.id.fragment_container1, mSecondFragment)
+                    }
+                    if (!mThirdFragment.isAdded) {
+                        fragmentTransaction.add(R.id.fragment_container2, mThirdFragment)
+                    }
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
+                mRemoveBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+                    fragmentTransaction.remove(mSecondFragment)
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
+                mReplaceBtn.setOnClickListener {
+                    val fragmentManager = supportFragmentManager
+                    val fragmentTransaction = fragmentManager.beginTransaction()
+
+                    if (!mSecondFragment.isAdded) {
+                        fragmentTransaction.replace(R.id.fragment_container2, mSecondFragment)
+                    }
+                    fragmentTransaction.addToBackStack(null)
+                    fragmentTransaction.commit()
+                }
             }
             else ->{
             }
