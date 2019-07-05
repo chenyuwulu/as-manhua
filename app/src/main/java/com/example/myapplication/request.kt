@@ -1,15 +1,21 @@
 package com.example.myapplication
 
-import android.util.Log
-import java.net.URL
+import okhttp3.OkHttpClient
+import okhttp3.Request
 
-class request(val url: String)
-{
-    public fun run():String
-    {
-        val jsonString: String = URL(url).readText()
-        Log.i("Request",jsonString)
 
-        return jsonString
+class request{
+    //异步
+    fun sendRequestWithOkhttp(request: Request,callback: okhttp3.Callback) {
+        val client = OkHttpClient()
+//        val request = Request.Builder().url(address).build()
+        client.newCall(request).enqueue(callback)
+    }
+    //同步
+    fun sendRequestWithOkhttp_async(address: String): String {
+        val client = OkHttpClient()
+        val request = Request.Builder().url(address).build()
+        val response = client.newCall(request).execute()
+        return response.body!!.string()
     }
 }
