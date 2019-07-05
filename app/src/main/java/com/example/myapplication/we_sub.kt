@@ -1112,7 +1112,7 @@ class we_sub : AppCompatActivity(){
                 val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
                 // 设置管理器
                 val layoutManager = GridLayoutManager(this,3)
-                mRecyclerView.layoutManager = layoutManager
+                mRecyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
                 // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
                 mRecyclerView.setHasFixedSize(true)
 
