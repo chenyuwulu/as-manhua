@@ -477,7 +477,8 @@ class we_sub : AppCompatActivity(){
                 listView.adapter = adapter
 
             }
-            "listview优化暂为空"->{
+            "list_youhua"->{
+                setContentView(R.layout.we_sub_list_youhua)
             }
             "listview_apply"->{
                 setContentView(R.layout.we_sub_listview_apply)
@@ -915,7 +916,7 @@ class we_sub : AppCompatActivity(){
                         imageView.scaleType = ScaleType.FIT_XY
                         imageView.layoutParams = FrameLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-                        )
+                        ) as ViewGroup.LayoutParams?
                         return imageView
                     }
                 })
