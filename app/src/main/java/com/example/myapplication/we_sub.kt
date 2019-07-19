@@ -40,6 +40,7 @@ import android.webkit.WebView
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
 import android.widget.SearchView
+import com.tencent.tauth.Tencent
 
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
@@ -478,6 +479,8 @@ class we_sub : AppCompatActivity(){
 
             }
             "list_youhua"->{
+                val APP_ID = "自己在开放平台申请的"
+                var mTencent = Tencent.createInstance(APP_ID, this.applicationContext)
                 setContentView(R.layout.we_sub_list_youhua)
             }
             "listview_apply"->{
@@ -916,7 +919,7 @@ class we_sub : AppCompatActivity(){
                         imageView.scaleType = ScaleType.FIT_XY
                         imageView.layoutParams = FrameLayout.LayoutParams(
                             ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-                        ) as ViewGroup.LayoutParams?
+                        )
                         return imageView
                     }
                 })
@@ -1113,7 +1116,7 @@ class we_sub : AppCompatActivity(){
                 val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
                 // 设置管理器
                 val layoutManager = GridLayoutManager(this,3)
-                mRecyclerView.layoutManager = layoutManager as RecyclerView.LayoutManager?
+                mRecyclerView.layoutManager = layoutManager
                 // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
                 mRecyclerView.setHasFixedSize(true)
 
