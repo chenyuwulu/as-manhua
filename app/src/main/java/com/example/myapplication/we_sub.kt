@@ -40,8 +40,13 @@ import android.webkit.WebView
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
 import android.widget.SearchView
+import com.tencent.connect.UserInfo
+import com.tencent.connect.common.Constants
+import com.tencent.tauth.IUiListener
 import com.tencent.tauth.Tencent
-
+import com.tencent.tauth.UiError
+import org.json.JSONException
+import org.json.JSONObject
 
 @Suppress("DEPRECATED_IDENTITY_EQUALS")
 class we_sub : AppCompatActivity(){
@@ -59,6 +64,10 @@ class we_sub : AppCompatActivity(){
     // 保存系统所有应用程序的List集合
     private val mItemDatas = ArrayList<ViewSwitcherItemData>()
 
+    var mTencent: Tencent? = null
+    private val TAG = "we_sub"
+    private var mUserInfo: UserInfo? = null
+    private var mIUiListener: BaseUiListener? =null
     //82课时的变量
     private var mLifePb: ProgressBar? = null
     private var mAttackPb: ProgressBar? = null
@@ -479,9 +488,17 @@ class we_sub : AppCompatActivity(){
 
             }
             "list_youhua"->{
-                val APP_ID = "自己在开放平台申请的"
-                var mTencent = Tencent.createInstance(APP_ID, this.applicationContext)
                 setContentView(R.layout.we_sub_list_youhua)
+                val mAppid = "222222"
+                val image = findViewById<ImageView>(R.id.iv_icon)
+                val tencent_login = findViewById<Button>(R.id.tencent_login)
+                val tv_result = findViewById<TextView>(R.id.tv_result)
+                mTencent = Tencent.createInstance(mAppid, this.applicationContext)
+                tencent_login.setOnClickListener{
+                    mIUiListener = BaseUiListener()
+                    //all表示获取所有权限
+                    mTencent!!.login(this@we_sub, "all", mIUiListener)
+                }
             }
             "listview_apply"->{
                 setContentView(R.layout.we_sub_listview_apply)
@@ -1721,9 +1738,59 @@ class we_sub : AppCompatActivity(){
                 }
             }
         }
+        if (requestCode == Constants.REQUEST_LOGIN) {
+            Tencent.onActivityResultData(requestCode, resultCode, data, mIUiListener)
+        }
     }
+
+    inner class BaseUiListener : IUiListener {
+
+        override fun onComplete(response: Any) {
+            Toast.makeText(this@we_sub, "授权成功", Toast.LENGTH_SHORT).show()
+            Log.e(TAG, "response:$response")
+            val obj = response as JSONObject
+            try {
+                val openID = obj.getString("openid")
+                val accessToken = obj.getString("access_token")
+                val expires = obj.getString("expires_in")
+                mTencent!!.openId = openID
+                mTencent!!.setAccessToken(accessToken, expires)
+                val qqToken = mTencent!!.qqToken
+                mUserInfo = UserInfo(applicationContext, qqToken)
+                mUserInfo!!.getUserInfo(object : IUiListener {
+                    override fun onComplete(response: Any) {
+                        //是一个json串response.tostring，直接使用gson解析就好
+                        Log.e(TAG, "登录成功$response")
+                        //登录成功后进行Gson解析即可获得你需要的QQ头像和昵称
+                        // Nickname  昵称
+                        //Figureurl_qq_1 //头像
+                    }
+
+                    override fun onError(uiError: UiError) {
+                        Log.e(TAG, "登录失败$uiError")
+                    }
+
+                    override fun onCancel() {
+                        Log.e(TAG, "登录取消")
+
+                    }
+                })
+            } catch (e: JSONException) {
+                e.printStackTrace()
+            }
+
+        }
+
+        override fun onError(uiError: UiError) {
+            Toast.makeText(this@we_sub, "授权失败", Toast.LENGTH_SHORT).show()
+
+        }
+
+        override fun onCancel() {
+            Toast.makeText(this@we_sub, "授权取消", Toast.LENGTH_SHORT).show()
+
+        }
+
+    }
+
 }
-
-
-
-
