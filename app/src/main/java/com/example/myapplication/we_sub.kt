@@ -489,7 +489,7 @@ class we_sub : AppCompatActivity(){
             }
             "list_youhua"->{
                 setContentView(R.layout.we_sub_list_youhua)
-                val mAppid = "222222"
+                val mAppid = "1109647204"
                 val image = findViewById<ImageView>(R.id.iv_icon)
                 val tencent_login = findViewById<Button>(R.id.tencent_login)
                 val tv_result = findViewById<TextView>(R.id.tv_result)
