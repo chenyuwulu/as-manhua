@@ -3,6 +3,7 @@
           package="com.example.myapplication">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity android:name=".tabbar"
                 android:label="@string/title_activity_tabbar">
         </activity>
@@ -31,10 +33,11 @@
                 <data android:scheme="tencent1109647204" />
             </intent-filter>
         </activity>
-        <activity android:name="com.tencent.connect.common.AssistActivity"
-                  android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                  android:configChanges="orientation|keyboardHidden|screenSize"
-        />
+        <activity
+                android:name="com.tencent.connect.common.AssistActivity"
+                android:configChanges="orientation|keyboardHidden|screenSize"
+                android:screenOrientation="behind"
+                android:theme="@android:style/Theme.Translucent.NoTitleBar" />
         <activity android:name=".we_sub_activity_transmit_second"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>

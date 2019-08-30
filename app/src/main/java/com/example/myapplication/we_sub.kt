@@ -493,7 +493,7 @@ class we_sub : AppCompatActivity(){
                 val image = findViewById<ImageView>(R.id.iv_icon)
                 val tencent_login = findViewById<Button>(R.id.tencent_login)
                 val tv_result = findViewById<TextView>(R.id.tv_result)
-                mTencent = Tencent.createInstance(mAppid, this.applicationContext)
+                mTencent = Tencent.createInstance(mAppid, this)
                 tencent_login.setOnClickListener{
                     mIUiListener = BaseUiListener()
                     //all表示获取所有权限
