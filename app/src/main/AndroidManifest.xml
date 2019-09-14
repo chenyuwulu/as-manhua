@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        package="com.example.myapplication">
+        package="com.chenyuwulu.ViewComic">
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -15,15 +15,15 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
         <uses-library android:name="org.apache.http.legacy" android:required="false"/>
-        <activity android:name=".tabbar"
+        <activity android:name="com.chenyuwulu.ViewComic.tabbar"
                 android:label="@string/title_activity_tabbar">
         </activity>
-        <activity android:name=".we_sub"
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub"
                   android:configChanges="orientation|screenSize"
                   android:label="@string/we_sub_name">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                    android:value="com.chenyuwulu.ViewComic.MainActivity"/>
         </activity>
         <activity
                 android:name="com.tencent.tauth.AuthActivity"
@@ -41,23 +41,23 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:screenOrientation="behind"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name=".we_sub_activity_transmit_second"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_transmit_second"></activity>
+        <activity android:name="com.chenyuwulu.ViewComic.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DisplayMessageActivity"
-                android:parentActivityName=".MainActivity">
+        <activity android:name="com.chenyuwulu.ViewComic.DisplayMessageActivity"
+                android:parentActivityName="com.chenyuwulu.ViewComic.MainActivity">
             <meta-data
                     android:name="android.support.PARENT_ACTIVITY"
-                    android:value=".MainActivity"/>
+                    android:value="com.chenyuwulu.ViewComic.MainActivity"/>
         </activity>
-        <activity android:name=".we_sub_activity_on_off_second"></activity>
-        <activity android:name=".we_sub_activity_life_cycle_second"></activity>
-        <activity android:name=".we_sub_shopactivity"
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_on_off_second"></activity>
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_life_cycle_second"></activity>
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_shopactivity"
                   android:label="购买装备"/>
     </application>
 

@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.chenyuwulu.ViewComic
 
 import org.junit.Test
 

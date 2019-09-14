@@ -6,7 +6,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context="com.example.myapplication.we_sub">
+        tools:context="com.chenyuwulu.ViewComic.we_sub">
 
     <ImageView
             android:id="@+id/iv_icon"
