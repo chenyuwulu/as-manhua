@@ -6,23 +6,23 @@
     <group android:checkableBehavior="single">
         <item
                 android:id="@+id/menu_mon"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@drawable/bh3"
                 android:title="Mon"/>
         <item
                 android:id="@+id/menu_tues"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@mipmap/ic_launcher_round"
                 android:title="Tues"/>
         <item
                 android:id="@+id/menu_wed"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@mipmap/ic_launcher_round"
                 android:title="Wed"/>
         <item
                 android:id="@+id/menu_thurs"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@mipmap/ic_launcher_round"
                 android:title="Thurs"/>
         <item
                 android:id="@+id/menu_fri"
-                android:icon="@mipmap/ic_launcher"
+                android:icon="@mipmap/ic_launcher_round"
                 android:title="Fri"/>
     </group>
 
@@ -31,11 +31,11 @@
         <menu>
             <item
                     android:id="@+id/menu_sat"
-                    android:icon="@mipmap/ic_launcher"
+                    android:icon="@mipmap/ic_launcher_round"
                     android:title="Sat"/>
             <item
                     android:id="@+id/menu_sun"
-                    android:icon="@mipmap/ic_launcher"
+                    android:icon="@mipmap/ic_launcher_round"
                     android:title="Sun"/>
         </menu>
     </item>
