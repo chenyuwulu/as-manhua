@@ -9,6 +9,11 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import android.os.Build
+import android.support.design.widget.NavigationView
+import android.support.v4.widget.DrawerLayout
+import android.widget.Toast
+import android.support.design.internal.NavigationMenuView
+
 
 
 
@@ -17,6 +22,10 @@ class MainActivity : AppCompatActivity() {
         val ACA = "message"
         val we_sub = "string"
     }
+    /** 抽屉视图  */
+    private var mDrawerLayout: DrawerLayout? = null
+    /** 侧滑菜单视图  */
+    private var mMenuNv: NavigationView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -28,12 +37,62 @@ class MainActivity : AppCompatActivity() {
             }
         }
         function1()
+        initUI()
+        initListener()
     }
     fun sendMessage(view: View) {
         val intent = Intent(this, DisplayMessageActivity::class.java)
         val message = editText1.text.toString()
         intent.putExtra(ojbk.ACA, message)
         startActivity(intent)
+    }
+    /**
+     * 初始化界面
+     */
+    private fun initUI() {
+        mDrawerLayout = findViewById(R.id.drawer_layout)
+        mMenuNv = findViewById(R.id.nv_layout)
+//        mOpenMenuTv = findViewById(R.id.tv_open)
+    }
+
+    /**
+     * 初始化监听
+     */
+    private fun initListener() {
+        // 设置侧滑菜单点击事件监听
+        mMenuNv!!.setNavigationItemSelectedListener { item ->
+            selectItem(item.itemId)
+            // 关闭侧滑菜单
+//            mDrawerLayout!!.closeDrawers()
+            true
+        }
+    }
+
+    /**
+     * 响应item点击事件
+     * @param itemid
+     */
+    private fun selectItem(itemid: Int) {
+        when (itemid) {
+            R.id.menu_mon -> Toast.makeText(this@MainActivity, "点击Mon", Toast.LENGTH_SHORT).show()
+            R.id.menu_tues -> Toast.makeText(this@MainActivity, "点击Tues", Toast.LENGTH_SHORT).show()
+            R.id.menu_wed -> Toast.makeText(this@MainActivity, "点击Wed", Toast.LENGTH_SHORT).show()
+            R.id.menu_thurs -> Toast.makeText(this@MainActivity, "点击Thurs", Toast.LENGTH_SHORT).show()
+            R.id.menu_fri -> Toast.makeText(this@MainActivity, "点击Fri", Toast.LENGTH_SHORT).show()
+            R.id.menu_sat -> Toast.makeText(this@MainActivity, "点击 Sat", Toast.LENGTH_SHORT).show()
+            R.id.menu_sun -> Toast.makeText(this@MainActivity, "点击 Sun", Toast.LENGTH_SHORT).show()
+            else -> {
+            }
+        }
+    }
+    /**
+     * 不显示滚动条
+     */
+    private fun removeNavigationViewScrollbar(navView: NavigationView?) {
+        if (navView != null) {
+            val navigationMenuView = navView.getChildAt(0) as NavigationMenuView
+            navigationMenuView.isVerticalScrollBarEnabled = false
+        }
     }
     fun function1():Unit{
         val x = 1
