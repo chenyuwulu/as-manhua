@@ -41,7 +41,7 @@
                 android:configChanges="orientation|keyboardHidden|screenSize"
                 android:screenOrientation="behind"
                 android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_transmit_second"></activity>
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_transmit_second" />
         <activity android:name="com.chenyuwulu.ViewComic.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -55,8 +55,8 @@
                     android:name="android.support.PARENT_ACTIVITY"
                     android:value="com.chenyuwulu.ViewComic.MainActivity"/>
         </activity>
-        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_on_off_second"></activity>
-        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_life_cycle_second"></activity>
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_on_off_second" />
+        <activity android:name="com.chenyuwulu.ViewComic.we_sub_activity_life_cycle_second" />
         <activity android:name="com.chenyuwulu.ViewComic.we_sub_shopactivity"
                   android:label="购买装备"/>
     </application>
