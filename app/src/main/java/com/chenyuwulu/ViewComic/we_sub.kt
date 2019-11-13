@@ -5,7 +5,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.graphics.Color
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.text.TextUtils
 import android.view.View
 import android.widget.*
@@ -25,10 +25,10 @@ import android.widget.ExpandableListView
 import android.graphics.drawable.AnimationDrawable
 import android.os.Handler
 import android.os.SystemClock
-import android.support.v4.view.PagerTabStrip
-import android.support.v4.view.ViewPager
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.*
+import androidx.viewpager.widget.PagerTabStrip
+import androidx.viewpager.widget.ViewPager
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.appcompat.widget.*
 import android.util.Log
 import android.widget.SeekBar
 import android.widget.ViewSwitcher
@@ -40,6 +40,11 @@ import android.webkit.WebView
 import android.widget.ImageView.ScaleType
 import android.widget.ImageView
 import android.widget.SearchView
+import androidx.cardview.widget.CardView
+import androidx.recyclerview.widget.DefaultItemAnimator
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.tencent.connect.UserInfo
 import com.tencent.connect.common.Constants
 import com.tencent.tauth.IUiListener
@@ -1132,7 +1137,7 @@ class we_sub : AppCompatActivity(){
 
                 val mRecyclerView = findViewById<RecyclerView>(R.id.recyclerview)
                 // 设置管理器
-                val layoutManager = GridLayoutManager(this,3)
+                val layoutManager = GridLayoutManager(this, 3)
                 mRecyclerView.layoutManager = layoutManager
                 // 如果可以确定每个item的高度是固定的，设置这个选项可以提高性能
                 mRecyclerView.setHasFixedSize(true)
@@ -1314,7 +1319,7 @@ class we_sub : AppCompatActivity(){
                 mPageList.add(inflater.inflate(R.layout.we_sub_viewpager_pager3,null,false))
                 val mAdapter = ViewPagerAdapter(mPageList)
                 mViewPager.adapter = mAdapter
-                mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+                mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
                     override fun onPageSelected(p0: Int) {
                         Toast.makeText(
                             this@we_sub, "第" + (p0 + 1) + "页",
@@ -1351,7 +1356,7 @@ class we_sub : AppCompatActivity(){
                 mViewPager.adapter = mAdapter
 
                 mPagerTabStrip.tabIndicatorColor =Color.BLUE
-                mViewPager.addOnPageChangeListener(object :ViewPager.OnPageChangeListener{
+                mViewPager.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
                     override fun onPageSelected(p0: Int) {
                         Toast.makeText(
                             this@we_sub, "第" + (p0 + 1) + "页",
@@ -1391,7 +1396,8 @@ class we_sub : AppCompatActivity(){
                     android.R.color.holo_orange_light,
                     android.R.color.holo_green_light
                 )
-                mSwipeRefreshLayout.setOnRefreshListener(object :SwipeRefreshLayout.OnRefreshListener{
+                mSwipeRefreshLayout.setOnRefreshListener(object :
+                    SwipeRefreshLayout.OnRefreshListener{
                     override fun onRefresh() {
                         mContentTv.text = "正在刷新，请稍后。。。"
                         Handler().run {
@@ -1729,7 +1735,7 @@ class we_sub : AppCompatActivity(){
                     val attackProgress = mAttackPb?.progress
                     val speedProgress = mSpeedPb?.progress
 
-                    mLifePb?.progress = lifeProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_LIFE)
+                    mLifePb?.progress = lifeProgress!! + equipment!!.getInt(we_sub_shopactivity.DATA_KEY_LIFE)
                     mAttackPb?.progress = attackProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_ATTACK)
                     mSpeedPb?.progress = speedProgress!! + equipment.getInt(we_sub_shopactivity.DATA_KEY_SPEED)
                     mLifeTV?.text=mLifePb!!.progress.toString()

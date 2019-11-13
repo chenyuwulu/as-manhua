@@ -2,7 +2,7 @@ package com.chenyuwulu.ViewComic
 
 
 import android.view.ViewGroup
-import android.support.v4.view.PagerAdapter
+import androidx.viewpager.widget.PagerAdapter
 import android.view.View
 
 

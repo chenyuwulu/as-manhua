@@ -2,7 +2,7 @@ package com.chenyuwulu.ViewComic
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.widget.TextView
 import android.view.ViewGroup
 import android.view.LayoutInflater

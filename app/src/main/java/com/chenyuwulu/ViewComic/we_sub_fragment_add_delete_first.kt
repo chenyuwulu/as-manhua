@@ -1,7 +1,7 @@
 package com.chenyuwulu.ViewComic
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 import android.os.Bundle
-import android.support.annotation.Nullable
+import androidx.annotation.Nullable
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.view.View

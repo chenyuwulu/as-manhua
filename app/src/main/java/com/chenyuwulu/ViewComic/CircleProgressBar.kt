@@ -65,11 +65,11 @@ class CircleProgressBar : View {
     protected override fun onDraw(canvas: Canvas) {
         initRect()
         val angle = mProgress / mMax.toFloat() * 360
-        canvas.drawCircle((mWidth / 2).toFloat(), (mHeight / 2).toFloat(), mRadius, mBackPaint)
-        canvas.drawArc(mRect, (-90).toFloat(), angle, false, mFrontPaint)
+        canvas.drawCircle((mWidth / 2).toFloat(), (mHeight / 2).toFloat(), mRadius, mBackPaint!!)
+        canvas.drawArc(mRect!!, (-90).toFloat(), angle, false, mFrontPaint!!)
         canvas.drawText(
             "$mProgress%", mWidth / 2 + mHalfStrokeWidth,
-            mHeight / 2 + mHalfStrokeWidth, mTextPaint
+            mHeight / 2 + mHalfStrokeWidth, mTextPaint!!
         )
         if (mProgress < mTargetProgress) {
             mProgress += 1

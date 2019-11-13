@@ -3,7 +3,7 @@ package com.chenyuwulu.ViewComic
 import android.annotation.SuppressLint
 import android.widget.TextView
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.View
 
 

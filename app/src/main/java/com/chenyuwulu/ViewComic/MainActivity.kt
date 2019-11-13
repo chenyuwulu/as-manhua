@@ -1,7 +1,7 @@
 package com.chenyuwulu.ViewComic
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
@@ -9,10 +9,9 @@ import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import android.os.Build
-import android.support.design.widget.NavigationView
-import android.support.v4.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
+import androidx.drawerlayout.widget.DrawerLayout
 import android.widget.Toast
-import android.support.design.internal.NavigationMenuView
 
 
 
@@ -90,7 +89,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun removeNavigationViewScrollbar(navView: NavigationView?) {
         if (navView != null) {
-            val navigationMenuView = navView.getChildAt(0) as NavigationMenuView
+            val navigationMenuView = navView.getChildAt(0)
             navigationMenuView.isVerticalScrollBarEnabled = false
         }
     }
