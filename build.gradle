@@ -11,7 +11,7 @@ buildscript {
         
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.6.2'//当前Android项目和gradle项目匹配的版本号
+        classpath 'com.android.tools.build:gradle:4.0.0'//当前Android项目和gradle项目匹配的版本号
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"//用kotlin开发的项目需要引入对应版本的插件
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
