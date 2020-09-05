@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.util.Log
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 import android.os.Build
@@ -39,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         initUI()
         initListener()
     }
-    fun sendMessage(view: View) {
+    fun sendMessage() {
         val intent = Intent(this, DisplayMessageActivity::class.java)
         val message = editText1.text.toString()
         intent.putExtra(ojbk.ACA, message)
@@ -101,380 +100,380 @@ class MainActivity : AppCompatActivity() {
 
         }
     }
-    fun tabbar(view: View){
+    fun tabbar(){
         startActivity(Intent(this,tabbar::class.java))//跳转去tabbar页面
     }
-    fun we_sub_textview(view: View){
+    fun we_sub_textview(){
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "textview")
         startActivity(intent)
     }
-    fun we_sub_edittext(view: View){
+    fun we_sub_edittext() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "edittext")
         startActivity(intent)
     }
-    fun we_sub_button(view: View){
+    fun we_sub_button() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "button")
         startActivity(intent)
     }
-    fun we_sub_check_radio(view: View){
+    fun we_sub_check_radio(){
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "check_radio")
         startActivity(intent)
     }
-    fun we_sub_togglebutton_switch(view: View){
+    fun we_sub_togglebutton_switch() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "togglebutton_switch")
         startActivity(intent)
     }
-    fun we_sub_imageview(view: View){
+    fun we_sub_imageview() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "imageview")
         startActivity(intent)
     }
-    fun we_sub_imagebutton(view: View){
+    fun we_sub_imagebutton() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "imagebutton")
         startActivity(intent)
     }
-    fun we_sub_customview(view: View){
+    fun we_sub_customview() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "customview")
         startActivity(intent)
     }
-    fun we_sub_linearlayout(view: View){
+    fun we_sub_linearlayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "linearlayout")
         startActivity(intent)
     }
-    fun we_sub_gravity_layout_gravity(view: View){
+    fun we_sub_gravity_layout_gravity() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "gravity_layout_gravity")
         startActivity(intent)
     }
-    fun we_sub_padding_margin(view: View){
+    fun we_sub_padding_margin() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "padding_margin")
         startActivity(intent)
     }
-    fun we_sub_relativelayout(view: View){
+    fun we_sub_relativelayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "relativelayout")
         startActivity(intent)
     }
-    fun we_sub_tablelayout(view: View){
+    fun we_sub_tablelayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "tablelayout")
         startActivity(intent)
     }
-    fun we_sub_framelayout(view: View){
+    fun we_sub_framelayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "framelayout")
         startActivity(intent)
     }
-    fun we_sub_absolutelayout(view: View){
+    fun we_sub_absolutelayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "absolutelayout")
         startActivity(intent)
     }
-    fun we_sub_gridlayout(view: View){
+    fun we_sub_gridlayout() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "gridlayout")
         startActivity(intent)
     }
-    fun we_sub_33(view: View){
+    fun we_sub_33() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "33")
         startActivity(intent)
     }
-    fun we_sub_34(view: View){
+    fun we_sub_34() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "34")
         startActivity(intent)
     }
-    fun we_sub_35(view: View){
+    fun we_sub_35() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "35")
         startActivity(intent)
     }
-    fun we_sub_36(view: View){
+    fun we_sub_36() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "36")
         startActivity(intent)
     }
-    fun we_sub_listview(view: View){
+    fun we_sub_listview() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "listview")
         startActivity(intent)
     }
-    fun we_sub_adapter(view: View){
+    fun we_sub_adapter() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "adapter")
         startActivity(intent)
     }
-    fun we_sub_listactivity(view: View){
+    fun we_sub_listactivity() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "listactivity")
         startActivity(intent)
     }
-    fun we_sub_arrayadapter(view: View){
+    fun we_sub_arrayadapter() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "arrayadapter")
         startActivity(intent)
     }
-    fun we_sub_simpleadapter(view: View){
+    fun we_sub_simpleadapter() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "simpleadapter")
         startActivity(intent)
     }
-    fun we_sub_baseadapter(view: View){
+    fun we_sub_baseadapter() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "baseadapter")
         startActivity(intent)
     }
-    fun list_youhua(view:View){
+    fun list_youhua() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "list_youhua")
         startActivity(intent)
     }
-    fun we_sub_listview_apply(view: View){
+    fun we_sub_listview_apply() {
         val intent = Intent(this, we_sub::class.java)
         intent.putExtra(ojbk.we_sub, "listview_apply")
         startActivity(intent)
     }
-    fun we_sub_gridview(view: View){
+    fun we_sub_gridview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"gridview")
         startActivity(intent)
     }
-    fun we_sub_spinner(view: View){
+    fun we_sub_spinner() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"spinner")
         startActivity(intent)
     }
-    fun we_sub_autocomplete_textview(view: View){
+    fun we_sub_autocomplete_textview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"autocomplete_textview")
         startActivity(intent)
     }
-    fun we_sub_expandlist(view: View){
+    fun we_sub_expandlist() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"expandlist")
         startActivity(intent)
     }
-    fun we_sub_adapterview_filpper(view: View){
+    fun we_sub_adapterview_filpper() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"adapterview_filpper")
         startActivity(intent)
     }
-    fun we_sub_stackview(view: View){
+    fun we_sub_stackview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"stackview")
         startActivity(intent)
     }
-    fun we_sub_progressbar(view: View){
+    fun we_sub_progressbar() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"progressbar")
         startActivity(intent)
     }
-    fun we_sub_custom_progressbar(view: View){
+    fun we_sub_custom_progressbar() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"custom_progressbar")
         startActivity(intent)
     }
-    fun we_sub_seekbar_ratingbar(view: View){
+    fun we_sub_seekbar_ratingbar() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"seekbar_ratingbar")
         startActivity(intent)
     }
-    fun we_sub_viewswitcher(view: View){
+    fun we_sub_viewswitcher() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"viewswitcher")
         startActivity(intent)
     }
-    fun we_sub_imageswitcher(view: View){
+    fun we_sub_imageswitcher() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"imageswitcher")
         startActivity(intent)
     }
-    fun we_sub_textswitcher(view: View){
+    fun we_sub_textswitcher() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"textswitcher")
         startActivity(intent)
     }
-    fun we_sub_viewflipper(view: View){
+    fun we_sub_viewflipper() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"viewflipper")
         startActivity(intent)
     }
-    fun we_sub_datepicker(view: View){
+    fun we_sub_datepicker() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"datepicker")
         startActivity(intent)
     }
-    fun we_sub_timepicker(view: View){
+    fun we_sub_timepicker() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"timepicker")
         startActivity(intent)
     }
-    fun we_sub_numberpicker(view: View){
+    fun we_sub_numberpicker() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"numberpicker")
         startActivity(intent)
     }
-    fun we_sub_clock(view: View){
+    fun we_sub_clock() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"clock")
         startActivity(intent)
     }
-    fun we_sub_calendarview_chronnmeter(view: View){
+    fun we_sub_calendarview_chronnmeter() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"calendarview_chronnmeter")
         startActivity(intent)
     }
-    fun we_sub_scrollview(view: View){
+    fun we_sub_scrollview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"scrollview")
         startActivity(intent)
     }
-    fun we_sub_searchview(view: View){
+    fun we_sub_searchview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"searchview")
         startActivity(intent)
     }
-    fun we_sub_tabhosttab(view: View){
+    fun we_sub_tabhosttab() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"tabhosttab")
         startActivity(intent)
     }
-    fun we_sub_recyclerview(view: View){
+    fun we_sub_recyclerview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"recyclerview")
         startActivity(intent)
     }
-    fun we_sub_recyclerview_divider(view: View){
+    fun we_sub_recyclerview_divider() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"recyclerview_divider")
         startActivity(intent)
     }
-    fun we_sub_recyclerview_click(view: View){
+    fun we_sub_recyclerview_click() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"recyclerview_click")
         startActivity(intent)
     }
-    fun we_sub_recyclerview_apply(view: View){
+    fun we_sub_recyclerview_apply() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"recyclerview_apply")
         startActivity(intent)
     }
-    fun we_sub_recyclerview_header_and_footer(view: View){
+    fun we_sub_recyclerview_header_and_footer() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"recyclerview_header_and_footer")
         startActivity(intent)
     }
-    fun we_sub_viewpager(view: View){
+    fun we_sub_viewpager() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"viewpager")
         startActivity(intent)
     }
-    fun we_sub_viewpager_tabhost(view: View){
+    fun we_sub_viewpager_tabhost() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"viewpager_tabhost")
         startActivity(intent)
     }
-    fun we_sub_cardview(view: View){
+    fun we_sub_cardview() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"cardview")
         startActivity(intent)
     }
-    fun we_sub_swiperefreshlayout(view: View){
+    fun we_sub_swiperefreshlayout() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"swiperefreshlayout")
         startActivity(intent)
     }
-    fun we_sub_activity_rumen(view: View){
+    fun we_sub_activity_rumen() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_rumen")
         startActivity(intent)
     }
-    fun we_sub_activity_on_off(view: View){
+    fun we_sub_activity_on_off() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_on_off")
         startActivity(intent)
     }
-    fun we_sub_activity_life_cycle(view: View){
+    fun we_sub_activity_life_cycle() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_life_cycle")
         startActivity(intent)
     }
-    fun we_sub_activity_save_h_or_v(view: View){
+    fun we_sub_activity_save_h_or_v() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_save_h_or_v")
         startActivity(intent)
     }
-    fun we_sub_activity_stack_start(view: View){
+    fun we_sub_activity_stack_start() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_stack_start")
         startActivity(intent)
     }
-    fun we_sub_intent(view: View){
+    fun we_sub_intent() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"intent")
         startActivity(intent)
     }
-    fun we_sub_intent_property_top(view: View){
+    fun we_sub_intent_property_top() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"intent_property_top")
         startActivity(intent)
     }
-    fun we_sub_intent_property_bottom(view: View){
+    fun we_sub_intent_property_bottom() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"intent_property_bottom")
         startActivity(intent)
     }
-    fun we_sub_activity_transmit(view: View){
+    fun we_sub_activity_transmit() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_transmit")
         startActivity(intent)
     }
-    fun we_sub_activity_return(view: View){
+    fun we_sub_activity_return() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_return")
         startActivity(intent)
     }
-    fun we_sub_activity_data_sub(view: View){
+    fun we_sub_activity_data_sub() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"activity_data_sub")
         startActivity(intent)
     }
-    fun we_sub_fragment(view: View){
+    fun we_sub_fragment() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment")
         startActivity(intent)
     }
-    fun we_sub_fragment_play(view: View){
+    fun we_sub_fragment_play() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment_play")
         startActivity(intent)
     }
-    fun we_sub_fragment_life_cycle(view: View){
+    fun we_sub_fragment_life_cycle() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment_life_cycle")
         startActivity(intent)
     }
-    fun we_sub_fragment_add_delete(view: View){
+    fun we_sub_fragment_add_delete() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment_add_delete")
         startActivity(intent)
     }
-    fun we_sub_fragment_display(view: View){
+    fun we_sub_fragment_display() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment_display")
         startActivity(intent)
     }
-    fun we_sub_fragment_back(view: View){
+    fun we_sub_fragment_back() {
         val intent = Intent(this,we_sub::class.java)
         intent.putExtra(ojbk.we_sub,"fragment_back")
         startActivity(intent)

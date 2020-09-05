@@ -52,8 +52,8 @@ class RecyclerViewAdapter_header_and_footer(context: Context, datas: ArrayList<S
 
     // 创建新View，被LayoutManager所调用
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        var vewHolder: RecyclerView.ViewHolder? = null
-        var view: View? = null
+        val vewHolder: RecyclerView.ViewHolder?
+        val view: View?
         if (ITEM_TYPE_HEADER == viewType) {
             view = mInflater!!.inflate(R.layout.we_sub_recyclerview_header, parent, false)
             vewHolder = HeaderViewHolder(view)

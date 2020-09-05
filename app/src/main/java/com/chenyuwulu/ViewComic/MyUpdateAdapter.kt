@@ -93,22 +93,22 @@ class MyUpdateAdapter : BaseAdapter {
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var convertView = convertView
-        var holder: ViewHolder? = null
-        if (null == convertView) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.we_sub_listview_apply_item, null)
+        var cts = convertView
+        val holder: ViewHolder?
+        if (null == cts) {
+            cts = LayoutInflater.from(mContext).inflate(R.layout.we_sub_listview_apply_item, null)
             holder = ViewHolder()
-            holder.img_icon = convertView!!.findViewById(R.id.icon_img) as ImageView
-            holder.txt_content = convertView!!.findViewById(R.id.content_tv)
-            convertView!!.setTag(holder)
+            holder.img_icon = cts!!.findViewById(R.id.icon_img) as ImageView
+            holder.txt_content = cts.findViewById(R.id.content_tv)
+            cts.setTag(holder)
         } else {
-            holder = convertView!!.getTag() as ViewHolder?
+            holder = cts.getTag() as ViewHolder?
         }
 
         val UpdateData = getItem(position)
         holder!!.img_icon!!.setImageResource(UpdateData.imgId)
         holder.txt_content!!.text = UpdateData.content
-        return convertView
+        return cts
     }
 
     private inner class ViewHolder {

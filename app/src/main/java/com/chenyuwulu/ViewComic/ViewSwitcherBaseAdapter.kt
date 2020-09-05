@@ -37,17 +37,17 @@ class ViewSwitcherBaseAdapter(context: Context, itemDatas: List<ViewSwitcherItem
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var convertView = convertView
-        var holder: ViewHolder? = null
-        if (null == convertView) {
+        var cts = convertView
+        val holder: ViewHolder?
+        if (null == cts) {
             // 加载R.layout.item布局文件
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.we_sub_viewswitcher_slide_gridview_item, null)
+            cts = LayoutInflater.from(mContext).inflate(R.layout.we_sub_viewswitcher_slide_gridview_item, null)
             holder = ViewHolder()
-            holder.iconImg = convertView!!.findViewById(R.id.icon_img) as ImageView
-            holder.nameTv = convertView!!.findViewById(R.id.name_tv)
-            convertView!!.setTag(holder)
+            holder.iconImg = cts!!.findViewById(R.id.icon_img) as ImageView
+            holder.nameTv = cts.findViewById(R.id.name_tv)
+            cts.setTag(holder)
         } else {
-            holder = convertView!!.getTag() as ViewHolder?
+            holder = cts.getTag() as ViewHolder?
         }
 
         if (holder != null) {
@@ -56,7 +56,7 @@ class ViewSwitcherBaseAdapter(context: Context, itemDatas: List<ViewSwitcherItem
         if (holder != null) {
             holder.nameTv!!.text = getItem(position).name
         }
-        return convertView
+        return cts
     }
 
     private inner class ViewHolder {

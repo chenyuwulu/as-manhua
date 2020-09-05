@@ -104,16 +104,16 @@ class MyExpandableListViewAdapter(
         groupPosition: Int, isExpanded: Boolean, convertView: View?,
         parent: ViewGroup
     ): View {
-        var convertView = convertView
-        var groupHolder: GroupHolder? = null
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.we_sub_expendlist_group, null)
+        var cts = convertView
+        var groupHolder: GroupHolder?
+        if (cts == null) {
+            cts = LayoutInflater.from(mContext).inflate(R.layout.we_sub_expendlist_group, null)
             groupHolder = GroupHolder()
-            groupHolder.groupNameTv = convertView!!.findViewById(R.id.groupname_tv)
-            groupHolder.groupImg = convertView!!.findViewById(R.id.group_img) as ImageView
-            convertView!!.setTag(groupHolder)
+            groupHolder.groupNameTv = cts!!.findViewById(R.id.groupname_tv)
+            groupHolder.groupImg = cts.findViewById(R.id.group_img) as ImageView
+            cts.setTag(groupHolder)
         } else {
-            groupHolder = convertView!!.getTag() as GroupHolder?
+            groupHolder = cts.getTag() as GroupHolder?
         }
 
         if (isExpanded) {
@@ -129,7 +129,7 @@ class MyExpandableListViewAdapter(
             groupHolder.groupNameTv!!.text = mGroupList!![groupPosition]
         }
 
-        return convertView
+        return cts
     }
 
     /**
@@ -147,16 +147,16 @@ class MyExpandableListViewAdapter(
         groupPosition: Int, childPosition: Int, isLastChild: Boolean,
         convertView: View?, parent: ViewGroup
     ): View {
-        var convertView = convertView
-        var itemHolder: ItemHolder? = null
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.we_sub_expendlist_item, null)
+        var cts = convertView
+        val itemHolder: ItemHolder?
+        if (cts == null) {
+            cts = LayoutInflater.from(mContext).inflate(R.layout.we_sub_expendlist_item, null)
             itemHolder = ItemHolder()
-            itemHolder.nameTv = convertView!!.findViewById(R.id.itemname_tv)
-            itemHolder.iconImg = convertView!!.findViewById(R.id.icon_img) as ImageView
-            convertView!!.setTag(itemHolder)
+            itemHolder.nameTv = cts!!.findViewById(R.id.itemname_tv)
+            itemHolder.iconImg = cts.findViewById(R.id.icon_img) as ImageView
+            cts.setTag(itemHolder)
         } else {
-            itemHolder = convertView!!.getTag() as ItemHolder?
+            itemHolder = cts.getTag() as ItemHolder?
         }
         if (itemHolder != null) {
             itemHolder.nameTv!!.text = mItemList!![groupPosition][childPosition]
@@ -165,7 +165,7 @@ class MyExpandableListViewAdapter(
             itemHolder.iconImg!!.setBackgroundResource(R.drawable.bh3_3)
         }
 
-        return convertView
+        return cts
     }
 
     /**

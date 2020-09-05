@@ -78,7 +78,7 @@ class CircleProgressBar : View {
     }
 
     fun getRealSize(measureSpec: Int): Int {
-        var result = 1
+        val result: Number
         val mode = MeasureSpec.getMode(measureSpec)
         val size = MeasureSpec.getSize(measureSpec)
         if (mode == MeasureSpec.AT_MOST || mode == MeasureSpec.UNSPECIFIED) {

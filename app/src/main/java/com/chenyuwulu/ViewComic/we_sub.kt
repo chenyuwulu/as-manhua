@@ -127,19 +127,19 @@ class we_sub : AppCompatActivity(){
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                mShanghaiCb.setOnCheckedChangeListener { compoundButton, b ->
+                mShanghaiCb.setOnCheckedChangeListener { compoundButton, _ ->
                     // 提示用户选择的城市
                     showSelectCity(compoundButton)
                 }
-                mBeijingCb.setOnCheckedChangeListener { compoundButton, b ->
+                mBeijingCb.setOnCheckedChangeListener { compoundButton, _ ->
                     // 提示用户选择的城市
                     showSelectCity(compoundButton)
                 }
-                mChongqingCb.setOnCheckedChangeListener { compoundButton, b ->
+                mChongqingCb.setOnCheckedChangeListener { compoundButton, _ ->
                     // 提示用户选择的城市
                     showSelectCity(compoundButton)
                 }
-                mSexRg.setOnCheckedChangeListener { radioGroup, checkedId ->
+                mSexRg.setOnCheckedChangeListener { _, checkedId ->
                     // 获取用户选中的性别
                     var sex = ""
                     when (checkedId) {
@@ -160,7 +160,7 @@ class we_sub : AppCompatActivity(){
                 title = "开关按钮展示"
                 val mLikeTb = findViewById<ToggleButton>(R.id.like_tb)
                 val mBluetoothSwitch = findViewById<Switch>(R.id.bluetooth_switch)
-                mLikeTb.setOnCheckedChangeListener { compoundButton, b ->
+                mLikeTb.setOnCheckedChangeListener { compoundButton, _ ->
                     // 消息提示
                     val tb_text = if(compoundButton.isChecked) "喜欢Android开发" else "不喜欢Android开发"
                     Toast.makeText(
@@ -169,7 +169,7 @@ class we_sub : AppCompatActivity(){
                         Toast.LENGTH_SHORT
                     ).show()
                 }
-                mBluetoothSwitch.setOnCheckedChangeListener { compoundButton, b ->
+                mBluetoothSwitch.setOnCheckedChangeListener { compoundButton, _ ->
                     val switch_text = if(compoundButton.isChecked) "打开蓝牙" else "关闭蓝牙"
                         Toast.makeText(
                             this,
@@ -191,20 +191,17 @@ class we_sub : AppCompatActivity(){
                 val mMinusZb = findViewById<ZoomButton>(R.id.minus_zb)
                 val mPlusZb = findViewById<ZoomButton>(R.id.plus_zb)
                 val mControlZc = findViewById<ZoomControls>(R.id.control_zc)
-                mControlIb.setOnClickListener(object : View.OnClickListener {
-                    override fun onClick(view: View) {
-                        // 根据记录的控制状态进行图标切换
-                        if (mFlag) {
-                            Toast.makeText(this@we_sub, "暂停", Toast.LENGTH_SHORT).show()
-                            mControlIb.setImageResource(R.drawable.bh3_2)
-                            mFlag = false
-                        } else {
-                            Toast.makeText(this@we_sub, "快进", Toast.LENGTH_SHORT).show()
-                            mControlIb.setImageResource(R.drawable.bh3_3)
-                            mFlag = true
-                        }
+                mControlIb.setOnClickListener { // 根据记录的控制状态进行图标切换
+                    if (mFlag) {
+                        Toast.makeText(this@we_sub, "暂停", Toast.LENGTH_SHORT).show()
+                        mControlIb.setImageResource(R.drawable.bh3_2)
+                        mFlag = false
+                    } else {
+                        Toast.makeText(this@we_sub, "快进", Toast.LENGTH_SHORT).show()
+                        mControlIb.setImageResource(R.drawable.bh3_3)
+                        mFlag = true
                     }
-                })
+                }
                 // 为缩小按钮绑定OnClickListener监听器
                 mMinusZb.setOnClickListener { Toast.makeText(this, "缩小", Toast.LENGTH_SHORT).show() }
                 // 为放大按钮绑定OnClickListener监听器

@@ -30,22 +30,19 @@ class MyFilpperAdapter(context: Context, imageIds: IntArray) : BaseAdapter() {
 
     // 该方法返回的View代表了每个列表项
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        var convertView = convertView
-        var imageView: ImageView? = null
-        if (null == convertView) {
+        val cts = convertView
+        val imageView: ImageView?
+        if (null == cts) {
             // 创建一个ImageView
             imageView = ImageView(mContext)
             // 设置ImageView的缩放类型
-            imageView!!.setScaleType(ImageView.ScaleType.FIT_XY)
+            imageView.scaleType = ImageView.ScaleType.FIT_XY
             // 为imageView设置布局参数
-            imageView!!.setLayoutParams(
-                ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
-                )
+            imageView.layoutParams = ViewGroup.LayoutParams(
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT
             )
-            convertView = imageView
         } else {
-            imageView = convertView as ImageView?
+            imageView = cts as ImageView?
         }
 
         // 给ImageView设置图片资源

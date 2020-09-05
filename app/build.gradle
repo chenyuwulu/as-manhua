@@ -5,11 +5,11 @@ apply plugin: 'kotlin-android'//kotlin开发Android，必须要有这个插件
 apply plugin: 'kotlin-android-extensions'//kotlin扩展功能插件，可以便利的使用kotlin来开发Android
 
 android {
-    compileSdkVersion 29//指定项目编译Android版本
+    compileSdkVersion 30//指定项目编译Android版本
     defaultConfig {//项目细节配置
         applicationId "com.chenyuwulu.ViewComic"//项目的唯一标识符
         minSdkVersion 19//支持的最低Android版本号
-        targetSdkVersion 29//已做过最低测试的版本号，比如我这里是Android 10的版本号，所以当项目跑在Android 9的系统下时，不会自动启用Android 10的新增特性
+        targetSdkVersion 30//已做过最低测试的版本号，比如我这里是Android 10的版本号，所以当项目跑在Android 9的系统下时，不会自动启用Android 10的新增特性
         versionCode 1 //当前版本号
         versionName "1.0"//当前版本号名称
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"//启用JUnit测试，可以为当前项目编写测试例子。

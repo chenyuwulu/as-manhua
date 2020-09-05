@@ -13,7 +13,9 @@ class DisplayMessageActivity : AppCompatActivity() {
         setContentView(R.layout.activity_display_message)
         val intent = intent
         val message = intent.getStringExtra(MainActivity.ojbk.ACA)
-        function1(message)
+        if (message != null) {
+            function1(message)
+        }
     }
 
     fun function1(x:String):Unit{

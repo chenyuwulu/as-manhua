@@ -1,1 +1,2 @@
+include ':chenyu_demo'
 include ':app'
