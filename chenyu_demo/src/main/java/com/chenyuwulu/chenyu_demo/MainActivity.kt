@@ -1,5 +1,6 @@
 package com.chenyuwulu.chenyu_demo
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.AdapterView
 import android.widget.GridView
@@ -61,6 +62,9 @@ class MainActivity : AppCompatActivity() {
         mAppGridView.adapter = simpleAdapter
         mAppGridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             // 显示被单击的图片
+            if (position==1){
+                startActivity(Intent(this,Course_1::class.java))
+            }
             Toast.makeText(
                 this, mAppNames[position],
                 Toast.LENGTH_SHORT

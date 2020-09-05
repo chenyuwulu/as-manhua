@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- 设置文字颜色、大小、样式 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="红色粗体倾斜的TextView"
+        android:textColor="#EA5246"
+        android:textStyle="bold|italic"
+        android:textSize="18sp" />
+
+    <!-- 使用阴影 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:shadowColor="#F9F900"
+        android:shadowDx="10.0"
+        android:shadowDy="10.0"
+        android:shadowRadius="3.0"
+        android:text="带阴影的TextView"
+        android:textColor="#4A4AFF"
+        android:textSize="30sp" />
+
+    <!-- 带图片 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableTop="@mipmap/ic_launcher"
+        android:drawableLeft="@mipmap/ic_launcher"
+        android:drawableRight="@mipmap/ic_launcher"
+        android:drawableBottom="@mipmap/ic_launcher"
+        android:text="带图片的TextView" />
+
+    <!-- 对邮件、电话、网址增加链接 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="邮件：675687771@qq.com\n电话：17681651793\n网站：https://www.baidu.com/"
+        android:autoLink="email|phone|web"/>
+
+    <!-- 实现跑马灯效果 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        android:text="当文字足够长的时候，这种属性配置就可以实现跑马灯的效果，前提是文字足够超过textview显示区域范围"
+        android:textSize="18sp" />
+    <view class="com.chenyuwulu.chenyu_demo.Course_1$MyTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="如果上一行没有生效，应该是因为焦点没有获取到，从而无法实现，所以这里是通过自定义一个来实现的"
+        android:textSize="18sp"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="marquee_forever"
+        android:scrollHorizontally="true"
+        android:singleLine="true"
+        />
+</LinearLayout>
