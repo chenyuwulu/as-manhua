@@ -62,8 +62,13 @@ class MainActivity : AppCompatActivity() {
         mAppGridView.adapter = simpleAdapter
         mAppGridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             // 显示被单击的图片
-            if (position==1){
-                startActivity(Intent(this,Course_1::class.java))
+            when (position) {
+                1->{
+                    startActivity(Intent(this,Course_1::class.java))
+                }
+                2->{
+                    startActivity(Intent(this,Course_2::class.java))
+                }
             }
             Toast.makeText(
                 this, mAppNames[position],

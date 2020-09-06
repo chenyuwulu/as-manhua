@@ -12,7 +12,7 @@ class Course_1 : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.course_1)
-        title = "textview"
+        title = "TextView展示页面"
 
     }
     class MyTextView : AppCompatTextView {
