@@ -7,47 +7,48 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="用户名:"
+        android:text="可随意输入文本:"
         android:textSize="16sp"/>
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入用户名" />
+        android:inputType="text"
+        android:hint="文本" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="密码:"
+        android:text="数字密码:"
         android:textSize="16sp"/>
     <!-- android:inputType="numberPassword"表明只能接受数字密码 -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入密码"
+        android:hint="密码"
         android:inputType="numberPassword"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="年龄："
+        android:text="仅限数字："
         android:textSize="16sp"/>
     <!-- inputType="number"表明是数值输入框 -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入年龄"
+        android:hint="年龄"
         android:inputType="number"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="生日："
+        android:text="日期："
         android:textSize="16sp"/>
     <!-- inputType="date"表明是日期输入框 -->
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入生日"
+        android:hint="比如生日"
         android:inputType="date"/>
 
     <TextView
@@ -59,7 +60,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="请输入电话号码"
+        android:hint="电话号码"
         android:inputType="phone"/>
 
 </LinearLayout>
