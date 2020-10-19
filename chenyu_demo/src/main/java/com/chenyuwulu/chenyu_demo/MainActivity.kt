@@ -13,15 +13,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        title = "首页-网格布局"
-        // 应用名
-        val site = object {
-            var name: String = "菜鸟教程"
-            var url: String = "www.runoob.com"
-        }
+        title = "首页-网格布局" // 应用名
         val mAppNames = arrayListOf(
-            "TextView",
-            "EditView"
+            "文本框","编辑框","按钮","单选和复选","开关按钮","图片","图片按钮",
+            "自定义View","线性布局"
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)
@@ -35,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                 "com.chenyuwulu.chenyu_demo"
             )
             listItem["icon"] = fanAnimaPicID
-            listItem["name"] = "示例：$i"
+            listItem["name"] = "$i"
             listItems.add(listItem)
         }
         // 创建一个SimpleAdapter

@@ -6,12 +6,12 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/manhua"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/manhua"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-<!--        主界面的activity-->
+        <!--        主界面的activity-->
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,14 +19,56 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<!--        TextView演示页面-->
+        <!--        TextView演示页面-->
         <activity android:name=".Course_0">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-<!--        EditView演示页面-->
+        <!--        EditView演示页面-->
         <activity android:name=".Course_1">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        Button演示页面-->
+        <activity android:name=".Course_2">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        单选按钮和复选框演示页面-->
+        <activity android:name=".Course_3">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        开关按钮演示页面-->
+        <activity android:name=".Course_4">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        图片演示页面-->
+        <activity android:name=".Course_5">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        图片按钮演示页面-->
+        <activity android:name=".Course_6">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        自定义View演示页面-->
+        <activity android:name=".Course_7">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--        线性布局演示页面-->
+        <activity android:name=".Course_8">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
