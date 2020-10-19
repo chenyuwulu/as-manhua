@@ -20,13 +20,13 @@
             </intent-filter>
         </activity>
 <!--        TextView演示页面-->
-        <activity android:name=".Course_1">
+        <activity android:name=".Course_0">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
 <!--        EditView演示页面-->
-        <activity android:name=".Course_2">
+        <activity android:name=".Course_1">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>

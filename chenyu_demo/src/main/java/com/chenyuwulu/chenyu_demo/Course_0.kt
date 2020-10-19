@@ -7,11 +7,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatTextView
 
 
-class Course_1 : AppCompatActivity() {
+class Course_0 : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.course_1)
+        setContentView(R.layout.course_0)
         title = "TextView展示页面"
 
     }
