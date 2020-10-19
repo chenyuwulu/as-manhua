@@ -16,7 +16,8 @@ class MainActivity : AppCompatActivity() {
         title = "首页-网格布局" // 应用名
         val mAppNames = arrayListOf(
             "文本框","编辑框","按钮","单选和复选","开关按钮","图片","图片按钮",
-            "自定义View","线性布局"
+            "自定义View","线性布局","布局重心","内外边距","相对布局","表格布局",
+            "帧布局","绝对布局","网格布局","Android事件"
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)
