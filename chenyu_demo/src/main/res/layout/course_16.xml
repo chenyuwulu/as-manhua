@@ -27,5 +27,28 @@
             android:layout_height="wrap_content"
             android:text="外部类形式" />
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="clickHandler"
+            android:text="直接绑定到标签" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.chenyuwulu.chenyu_demo.Course_16_MyButton
+            android:id="@+id/mybutton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button基于回调的事件处理"/>
+    </LinearLayout>
 
 </LinearLayout>
