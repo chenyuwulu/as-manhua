@@ -1,10 +1,7 @@
 package com.chenyuwulu.chenyu_demo
 
 import android.os.Bundle
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.course_17.*
 
@@ -58,5 +55,72 @@ class Course_17 : AppCompatActivity() {
         // 为ListView设置Adapter
         this.array_adapter.adapter = ArrayAdapter
 
+
+        // 自定义simpleadapter
+        fun simpleadapter_getData(): List<Map<String, Any>> {
+            val list = ArrayList<Map<String, Any>>()
+            var map: MutableMap<String, Any> = HashMap()
+            map["img"] = R.drawable.bh3_1
+            map["title"] = "小宗"
+            map["info"] = "电台DJ"
+            list.add(map)
+
+            map = HashMap()
+            map["img"] = R.drawable.bh3_2
+            map["title"] = "貂蝉"
+            map["info"] = "四大美女"
+            list.add(map)
+
+            map = HashMap()
+            map["img"] = R.drawable.bh3_3
+            map["title"] = "奶茶"
+            map["info"] = "清纯妹妹"
+            list.add(map)
+
+            map = HashMap()
+            map["img"] = R.drawable.bh3_4
+            map["title"] = "大黄"
+            map["info"] = "是小狗"
+            list.add(map)
+
+            map = HashMap()
+            map["img"] = R.drawable.bh3_5
+            map["title"] = "hello"
+            map["info"] = "every thing"
+            list.add(map)
+
+            map = HashMap()
+            map["img"] = R.drawable.bh3_6
+            map["title"] = "world"
+            map["info"] = "hello world"
+            list.add(map)
+
+            return list
+        }
+        val simpleadapter = SimpleAdapter(this,
+            simpleadapter_getData(),
+            R.layout.course_17_simple_adapter,
+            arrayOf("img", "title", "info"),
+            intArrayOf(R.id.icon_img, R.id.title_tv, R.id.info_tv)
+        )
+        this.simple_adapter.adapter = simpleadapter
+
+        // 自定义baseadapter
+        fun baseadapter_getData(): List<Course_17_baseadapter_data> {
+            val datas = ArrayList<Course_17_baseadapter_data>()
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_1, "小宗", "电台DJ"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_2, "貂蝉", "四大美女"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_3, "奶茶", "清纯妹妹"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_4, "大黄", "是小狗"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_5, "hello", "every thing"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_6, "world", "hello world"))
+            return datas
+        }
+
+        // 将数组包装为自定义MyBaseAdapter
+        val baseadapter = Course_17_baseadapter(this, baseadapter_getData(), R.layout.course_17_base_adapter)
+
+        // 为ListView设置Adapter
+        this.basea_adapter.adapter = baseadapter
     }
 }

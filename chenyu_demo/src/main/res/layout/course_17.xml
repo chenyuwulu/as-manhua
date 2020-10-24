@@ -15,7 +15,6 @@
             android:layout_height="wrap_content"
             android:text="直接使用数组资源给出列表项:"
             android:textSize="16sp" />
-        <!-- 设置使用蓝色的分隔条 -->
         <ListView
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -29,7 +28,6 @@
             android:layout_height="wrap_content"
             android:text="使用adapter方法来进行输出绑定:"
             android:textSize="16sp" />
-        <!-- 设置使用绿色的分隔条 -->
         <ListView
             android:id="@+id/listview_adapter"
             android:layout_width="match_parent"
@@ -57,6 +55,28 @@
             android:textSize="16sp" />
         <ListView
             android:id="@+id/array_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+        <!-- simpleadapter展示-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="simpleadapter展示:"
+            android:textSize="16sp" />
+        <ListView
+            android:id="@+id/simple_adapter"
+            android:layout_width="match_parent"
+            android:layout_height="400dp" />
+
+        <!-- baseadapter展示-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="baseadapter展示:"
+            android:textSize="16sp" />
+        <ListView
+            android:id="@+id/basea_adapter"
             android:layout_width="match_parent"
             android:layout_height="400dp" />
     </LinearLayout>
