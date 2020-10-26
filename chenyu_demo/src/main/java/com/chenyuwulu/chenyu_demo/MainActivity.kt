@@ -2,12 +2,12 @@ package com.chenyuwulu.chenyu_demo
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.SimpleAdapter
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.chenyuwulu.chenyu_demo.we_sub.qq_login
 
 
 class MainActivity : AppCompatActivity() {
@@ -54,10 +54,39 @@ class MainActivity : AppCompatActivity() {
             }
 
 //            // 显示被单击的图片
-            Toast.makeText(
-                this, "这是第 $position 个",
-                Toast.LENGTH_SHORT
-            ).show()
+//            Toast.makeText(
+//                this, "这是第 $position 个",
+//                Toast.LENGTH_SHORT
+//            ).show()
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        Log.d("这里触发了", "onStart()")
+    }
+    override fun onRestart() {
+        super.onRestart()
+        Log.d("这里触发了", "onRestart()")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d("这里触发了", "onResume()")
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d("这里触发了", "onPause()")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d("这里触发了", "onStop()")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d("这里触发了", "onDestroy()")
     }
 }
