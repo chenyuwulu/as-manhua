@@ -10,9 +10,11 @@
 
     <ImageView
         android:id="@+id/iv_icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:layout_gravity="center"
+        android:layout_marginBottom="30dp"
+        android:scaleType="fitStart"
         android:src="@mipmap/ic_launcher"/>
 
     <Button
