@@ -15,4 +15,13 @@
         <item>第九阶段</item>
         <item>第十阶段</item>
     </string-array>
+    <string-array name="professionals">
+        <item>Android</item>
+        <item>Java</item>
+        <item>Python</item>
+        <item>PHP</item>
+        <item>.Net</item>
+        <item>C++</item>
+        <item>C</item>
+    </string-array>
 </resources>

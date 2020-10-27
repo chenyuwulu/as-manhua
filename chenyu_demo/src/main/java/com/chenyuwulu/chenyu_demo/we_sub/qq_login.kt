@@ -45,7 +45,7 @@ class qq_login : AppCompatActivity() {
     inner class BaseUiListener : IUiListener {
 
         override fun onComplete(response: Any) {
-            Toast.makeText(this@qq_login, "授权成功", Toast.LENGTH_SHORT).show()
+//            Toast.makeText(this@qq_login, "授权成功", Toast.LENGTH_SHORT).show()
             Log.e(TAG, "response:$response")
             val obj = response as JSONObject
             try {
@@ -63,10 +63,11 @@ class qq_login : AppCompatActivity() {
                         //登录成功后进行Gson解析即可获得你需要的QQ头像和昵称
                         // Nickname  昵称
                         val we_obj = response as JSONObject
-                        Toast.makeText(this@qq_login, we_obj.getString("nickname"), Toast.LENGTH_SHORT).show()
+//                        Toast.makeText(this@qq_login, we_obj.getString("nickname"), Toast.LENGTH_SHORT).show()
 //                        Glide.with(this@qq_login).load(we_obj.getString("figureurl_qq")).into(this@qq_login.iv_icon);
                         //Figureurl_qq_1 //头像
                         loadNetImage(we_obj.getString("figureurl_qq"))
+                        this@qq_login.tv_result.text = we_obj.getString("nickname")
 
                     }
                     fun loadNetImage(src : String){

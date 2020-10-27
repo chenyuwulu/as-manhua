@@ -130,6 +130,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <!--       GridView演示页面-->
+        <activity android:name=".Course_18">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       下拉框Spinner演示页面-->
+        <activity android:name=".Course_19">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       自动完成文本框演示页面-->
+        <activity android:name=".Course_20">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       可折叠列表演示页面-->
+        <activity android:name=".Course_21">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <!--       qq登录演示页面-->
         <activity android:name=".we_sub.qq_login">
             <meta-data

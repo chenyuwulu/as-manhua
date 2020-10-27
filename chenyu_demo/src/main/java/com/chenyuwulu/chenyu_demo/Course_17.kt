@@ -1,9 +1,13 @@
 package com.chenyuwulu.chenyu_demo
 
 import android.os.Bundle
+import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.course_17.*
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.collections.HashMap
 
 class Course_17 : AppCompatActivity() {
 
@@ -114,13 +118,64 @@ class Course_17 : AppCompatActivity() {
             datas.add(Course_17_baseadapter_data(R.drawable.bh3_4, "大黄", "是小狗"))
             datas.add(Course_17_baseadapter_data(R.drawable.bh3_5, "hello", "every thing"))
             datas.add(Course_17_baseadapter_data(R.drawable.bh3_6, "world", "hello world"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_1, "小宗", "电台DJ"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_2, "貂蝉", "四大美女"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_3, "奶茶", "清纯妹妹"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_4, "大黄", "是小狗"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_5, "hello", "every thing"))
+            datas.add(Course_17_baseadapter_data(R.drawable.bh3_6, "world", "hello world"))
             return datas
         }
 
+
+        this.basea_adapter.addHeaderView(layoutInflater.inflate(R.layout.course_17_base_adapter_youhua_headview, null))
+        this.basea_adapter.addFooterView(layoutInflater.inflate(R.layout.course_17_base_adapter_youhua_footview, null))
         // 将数组包装为自定义MyBaseAdapter
         val baseadapter = Course_17_baseadapter(this, baseadapter_getData(), R.layout.course_17_base_adapter)
 
         // 为ListView设置Adapter
         this.basea_adapter.adapter = baseadapter
+
+
+        // listview动态数据刷新
+        // 获取界面组件
+        val mListView = findViewById<ListView>(R.id.listview_apply)
+        val mAddBtn = findViewById<Button>(R.id.add_btn)
+        val mUpdateBtn = findViewById<Button>(R.id.update_btn)
+        val mDeleteBtn = findViewById<Button>(R.id.delete_btn)
+        val mClearBtn = findViewById<Button>(R.id.clear_btn)
+        val mAdapter:Course_17_MyUpdateAdapter
+        // 添加列表控内容视图
+        val emptyView = findViewById<View>(R.id.empty_tv)
+        mListView.emptyView = emptyView
+        // 初始化列表
+        val datas = LinkedList<Course_17_updatedata>()
+        mAdapter = Course_17_MyUpdateAdapter(this, datas)
+        mListView.adapter = mAdapter
+        // 设置按钮点击事件监听器
+        //获取列表随机位置
+        fun getRandomPosition(): Int {
+            val count = mAdapter.count
+            return (Math.random() * count).toInt()
+        }
+        //获取100以内的随机数
+        fun getRandomNumber(): Double {
+            return Math.random() * 100
+        }
+        mAddBtn.setOnClickListener{
+            val position = getRandomPosition()
+            mAdapter.add(position, Course_17_updatedata(R.mipmap.ic_launcher, "随机添加$position"))
+        }
+        mUpdateBtn.setOnClickListener {
+            val position = getRandomPosition()
+            mAdapter.update(position, Course_17_updatedata(R.mipmap.ic_launcher, "更新" + getRandomNumber()))
+        }
+        mDeleteBtn.setOnClickListener {
+            val position = getRandomPosition()
+            mAdapter.remove(position)
+        }
+        mClearBtn.setOnClickListener {
+            mAdapter.clear()
+        }
     }
 }

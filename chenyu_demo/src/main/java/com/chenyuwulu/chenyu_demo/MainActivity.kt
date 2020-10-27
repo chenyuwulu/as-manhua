@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.AdapterView
 import android.widget.GridView
 import android.widget.SimpleAdapter
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 
@@ -18,7 +17,8 @@ class MainActivity : AppCompatActivity() {
         val mAppNames = arrayListOf(
             "文本框","编辑框","按钮","单选和复选","开关按钮","图片","图片按钮",//0-6
             "自定义View","线性布局","布局重心","内外边距","相对布局","表格布局", "帧布局",//7-13
-            "绝对布局","网格布局","Android事件","listview","qq登录"
+            "绝对布局","网格布局","Android事件","listview","GridView","下拉框Spinner",//14-19
+            "自动完成文本框","可折叠列表"
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)
@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity() {
         mAppGridView.adapter = simpleAdapter
         mAppGridView.onItemClickListener = AdapterView.OnItemClickListener { _, _, position, _ ->
             //打开对应的activity
-            if(position==18){
-                startActivity(Intent(this,Class.forName("com.chenyuwulu.chenyu_demo.we_sub.qq_login")))
-            } else {
+//            if(position==18){
+//                startActivity(Intent(this,Class.forName("com.chenyuwulu.chenyu_demo.we_sub.qq_login")))
+//            } else {
                 startActivity(Intent(this,Class.forName("com.chenyuwulu.chenyu_demo.Course_$position")))
-            }
+//            }
 
 //            // 显示被单击的图片
 //            Toast.makeText(

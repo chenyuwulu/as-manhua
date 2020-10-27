@@ -16,15 +16,15 @@
         android:layout_marginBottom="30dp"
         android:scaleType="fitStart"
         android:src="@mipmap/ic_launcher"/>
-
+    <TextView
+        android:id="@+id/tv_result"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="20dp"/>
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/tencent_login"
         android:text="登 录"/>
-
-    <TextView
-        android:id="@+id/tv_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 </LinearLayout>
