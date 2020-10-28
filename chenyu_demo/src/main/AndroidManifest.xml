@@ -154,6 +154,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <!--       图片轮播演示页面-->
+        <activity android:name=".Course_22">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       卡片堆叠演示页面-->
+        <activity android:name=".Course_23">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       进度条演示页面-->
+        <activity android:name=".Course_24">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       拖动条和星级评分条演示页面-->
+        <activity android:name=".Course_25">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
         <!--       qq登录演示页面-->
         <activity android:name=".we_sub.qq_login">
             <meta-data

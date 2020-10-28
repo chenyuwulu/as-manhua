@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
             "文本框","编辑框","按钮","单选和复选","开关按钮","图片","图片按钮",//0-6
             "自定义View","线性布局","布局重心","内外边距","相对布局","表格布局", "帧布局",//7-13
             "绝对布局","网格布局","Android事件","listview","GridView","下拉框Spinner",//14-19
-            "自动完成文本框","可折叠列表"
+            "自动完成文本框","可折叠列表","图片轮播","卡片堆叠","进度条","拖动条星级评分"
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)
