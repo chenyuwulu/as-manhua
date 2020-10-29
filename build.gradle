@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.4.0'//kotlin的版本号
+    ext.kotlin_version = '1.4.10'//kotlin的版本号
     ext.anko_version = '0.10.8'//anko版本号
     repositories { //引入扩展组件依赖库
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
