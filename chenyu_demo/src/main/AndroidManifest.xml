@@ -178,6 +178,69 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <!--       视图切换演示页面-->
+        <activity android:name=".Course_26">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       图片切换演示页面-->
+        <activity android:name=".Course_27">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       文本切换演示页面-->
+        <activity android:name=".Course_28">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       翻转视图演示页面-->
+        <activity android:name=".Course_29">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       日期选择器演示页面-->
+        <activity android:name=".Course_30">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--       时间选择器演示页面-->
+        <activity android:name=".Course_31">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      数值选择器演示页面-->
+        <activity android:name=".Course_32">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      时钟演示页面-->
+        <activity android:name=".Course_33">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      日历和定时器演示页面-->
+        <activity android:name=".Course_34">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+
+
+
+
+
+
+
+
         <!--       qq登录演示页面-->
         <activity android:name=".we_sub.qq_login">
             <meta-data
