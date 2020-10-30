@@ -232,9 +232,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-
-
-
+        <!--      滚动视图演示页面-->
+        <activity android:name=".Course_35">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      搜索框演示页面-->
+        <activity android:name=".Course_36">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      选项卡演示页面-->
+        <activity android:name=".Course_37">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      回收视图演示页面-->
+        <activity android:name=".Course_38">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
 
 

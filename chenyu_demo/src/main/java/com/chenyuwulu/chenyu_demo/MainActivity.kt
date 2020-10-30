@@ -20,7 +20,8 @@ class MainActivity : AppCompatActivity() {
             "绝对布局","网格布局","Android事件","listview","GridView","下拉框Spinner",//14-19
             "自动完成文本框","可折叠列表","图片轮播","卡片堆叠","进度条","拖动条星级评分",
             "视图切换","图片切换","文本切换","翻转视图","日期选择器","时间选择器",
-            "数值选择器","时钟","日历和定时器"
+            "数值选择器","时钟","日历和定时器","滚动视图","搜索框","选项卡","回收视图",
+
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)
