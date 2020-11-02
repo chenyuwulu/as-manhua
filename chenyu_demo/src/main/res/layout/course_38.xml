@@ -3,8 +3,6 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -12,12 +10,23 @@
             <Button
                 android:text="切换横竖"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" android:id="@+id/recyclerview_hengxiang"/>
+                android:layout_height="wrap_content" android:id="@+id/recyclerview_hengshu"/>
         </TableRow>
     </TableLayout>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerview"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="200dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_divider"
+        android:background="#5000"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerview_click"
+        android:background="#5000"
+        android:layout_marginTop="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"/>
 </LinearLayout>
