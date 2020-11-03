@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.course_38.*
@@ -69,6 +70,27 @@ class Course_38 : AppCompatActivity() {
             }
         })
         this.recyclerview_click.adapter = mAdapter_RecyclerViewAdapter_click
+
+
+        //设置动态绑定数据
+
+        this.recyclerview_apply.layoutManager = LinearLayoutManager(this)
+        this.recyclerview_apply.addItemDecoration(Course_38_RecyclerViewItemDivider(this,R.drawable.recyclerview_item_divider))
+        this.recyclerview_apply.setHasFixedSize(true)
+        val mAdapter_RecyclerViewAdapter_apply = Course_38_RecyclerViewAdapter_apply(this,mDatas)
+        mAdapter_RecyclerViewAdapter_apply.setOnItemClickListener(object :Course_38_RecyclerViewAdapter_apply.OnItemClickListener {
+            override fun onClick(parent: View?, position: Int) {
+                mAdapter_RecyclerViewAdapter_apply.addData(position + 1)
+            }
+        })
+        mAdapter_RecyclerViewAdapter_apply.setOnItemLongClickListener(object :Course_38_RecyclerViewAdapter_apply.OnItemLongClickListener{
+            override fun onLongClick(parent: View?, position: Int): Boolean {
+                mAdapter_RecyclerViewAdapter_apply.removeData(position)
+                return true
+            }
+        })
+        this.recyclerview_apply.adapter = mAdapter_RecyclerViewAdapter_apply
+        this.recyclerview_apply.itemAnimator = DefaultItemAnimator()
     }
 
 
