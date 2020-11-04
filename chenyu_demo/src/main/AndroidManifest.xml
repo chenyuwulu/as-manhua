@@ -256,11 +256,37 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-
-
-
-
-
+        <!--      快速实现引导页演示页面-->
+        <activity android:name=".Course_39">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      TabHost演示页面-->
+        <activity android:name=".Course_40">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      CardView演示页面-->
+        <activity android:name=".Course_41">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      下拉刷新演示页面-->
+        <activity android:name=".Course_42">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      Activity演示页面-->
+        <activity android:name=".Course_43"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
         <!--       qq登录演示页面-->
         <activity android:name=".we_sub.qq_login">

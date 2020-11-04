@@ -56,5 +56,16 @@
             android:layout_marginTop="20dp"
             android:layout_width="wrap_content"
             android:layout_height="600dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="加上头尾"
+            android:textSize="26dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerview_header_and_footer"
+            android:background="#5000"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="600dp"/>
     </LinearLayout>
 </ScrollView>

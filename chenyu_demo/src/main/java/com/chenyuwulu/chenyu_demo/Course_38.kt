@@ -91,6 +91,26 @@ class Course_38 : AppCompatActivity() {
         })
         this.recyclerview_apply.adapter = mAdapter_RecyclerViewAdapter_apply
         this.recyclerview_apply.itemAnimator = DefaultItemAnimator()
+
+
+        //设置头尾
+        this.recyclerview_header_and_footer.layoutManager = LinearLayoutManager(this)
+        this.recyclerview_header_and_footer.addItemDecoration(Course_38_RecyclerViewItemDivider(this,R.drawable.recyclerview_item_divider))
+        this.recyclerview_header_and_footer.setHasFixedSize(true)
+        val mAdapter_header_and_footer = Course_38_RecyclerViewAdapter_header_and_footer(this,mDatas)
+        mAdapter_header_and_footer.setOnItemClickListener(object :Course_38_RecyclerViewAdapter_header_and_footer.OnItemClickListener {
+            override fun onClick(parent: View?, position: Int) {
+                mAdapter_header_and_footer.addData(position + 1)
+            }
+        })
+        mAdapter_header_and_footer.setOnItemLongClickListener(object :Course_38_RecyclerViewAdapter_header_and_footer.OnItemLongClickListener{
+            override fun onLongClick(parent: View?, position: Int): Boolean {
+                mAdapter_header_and_footer.removeData(position)
+                return true
+            }
+        })
+        this.recyclerview_header_and_footer.adapter = mAdapter_header_and_footer
+        this.recyclerview_header_and_footer.itemAnimator = DefaultItemAnimator()
     }
 
 

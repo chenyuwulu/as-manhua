@@ -65,4 +65,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="登录"/>
+
+    <Button
+        android:visibility="gone"
+        android:id="@+id/activity_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回"/>
+    <Button
+        android:visibility="gone"
+        android:id="@+id/activity_back_close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="返回并关闭自己"/>
+    <Button
+        android:visibility="gone"
+        android:id="@+id/activity_close_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="关闭自己"/>
+
 </LinearLayout>
