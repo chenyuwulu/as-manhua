@@ -287,6 +287,25 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
+        <!--      intent演示页面-->
+        <activity android:name=".Course_44"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+
+
+
+
+
+
+
+
+
+
+
+
 
         <!--       qq登录演示页面-->
         <activity android:name=".we_sub.qq_login">
