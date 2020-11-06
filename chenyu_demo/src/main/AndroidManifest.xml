@@ -39,6 +39,12 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
+            <intent-filter>
+                <action android:name="com.chenyuwulu.chenyu_demo.intent_action" />
+                <!--如果用action来启动activity，则需要加上这句来响应-->
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="com.chenyuwulu.chenyu_demo.intent_category" />
+            </intent-filter>
         </activity>
         <!--        单选按钮和复选框演示页面-->
         <activity android:name=".Course_3">

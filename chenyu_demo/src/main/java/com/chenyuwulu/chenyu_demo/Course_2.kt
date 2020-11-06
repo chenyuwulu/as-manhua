@@ -9,6 +9,8 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.course_2.*
+import kotlinx.android.synthetic.main.course_44.*
+
 
 class Course_2 : AppCompatActivity() {
 
@@ -21,9 +23,13 @@ class Course_2 : AppCompatActivity() {
         val mLoginBtn = findViewById<Button>(R.id.login_btn)
         mLoginBtn.setOnClickListener{
             if(TextUtils.isEmpty(mNameEt.text) || TextUtils.isEmpty(mPasswordEt.text)){
-                Toast.makeText(this,"帐号或密码为空", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this, "帐号或密码为空", Toast.LENGTH_SHORT).show()
             }else{
-                Toast.makeText(this,"用户名：" + mNameEt.text + "\n密码：" + mPasswordEt.text, Toast.LENGTH_SHORT).show()
+                Toast.makeText(
+                    this,
+                    "用户名：" + mNameEt.text + "\n密码：" + mPasswordEt.text,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
 
         }
@@ -51,5 +57,9 @@ class Course_2 : AppCompatActivity() {
                 finish()
             }
         }
+        val comp = intent.component
+        this.intent_Component_text.text = "组件包名为：${comp!!.packageName}组件类名为：${comp.className}".trimIndent()
+        this.intent_Action_text.text = "Action为：" + intent.action
+        this.intent_Category_text.text = "Action为：" + intent.action + "\nCategory属性为：" + intent.categories
     }
 }
