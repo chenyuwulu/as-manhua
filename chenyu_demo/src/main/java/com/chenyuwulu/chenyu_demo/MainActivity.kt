@@ -21,7 +21,8 @@ class MainActivity : AppCompatActivity() {
             "自动完成文本框","可折叠列表","图片轮播","卡片堆叠","进度条","拖动条星级评分",//20-25
             "视图切换","图片切换","文本切换","翻转视图","日期选择器","时间选择器",//26-31
             "数值选择器","时钟","日历和定时器","滚动视图","搜索框","选项卡","回收视图",//32-38
-            "快速实现引导页","TabHost","CardView","下拉刷新","Activity","intent"
+            "快速实现引导页","TabHost","CardView","下拉刷新","Activity","intent",
+            "Activity传递数据","Activity回传数据","数据传递方法汇总","Fragment"
         )
         // 获取界面组件
         val mAppGridView = findViewById<GridView>(R.id.gridview)

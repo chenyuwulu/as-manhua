@@ -300,13 +300,43 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity"/>
         </activity>
-
-
-
-
-
-
-
+        <!--      Activity数据传递演示页面-->
+        <activity android:name=".Course_45"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      Activity数据传递演示页面第二个页面-->
+        <activity android:name=".Course_45_transmit" />
+        <!--      Activity回调演示页面-->
+        <activity android:name=".Course_46"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      Activity回调演示页面第二个页面-->
+        <activity android:name=".Course_46_shop"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      Activity间数据传递方法汇总演示页面-->
+        <activity android:name=".Course_47"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
+        <!--      Fragment演示页面-->
+        <activity android:name=".Course_48"
+            android:configChanges="orientation|keyboardHidden|screenSize">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity"/>
+        </activity>
 
 
 

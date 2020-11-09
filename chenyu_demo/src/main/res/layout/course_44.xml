@@ -89,5 +89,41 @@
             android:layout_height="wrap_content"
             android:text="同时设置DATA和TYPE"
             android:id="@+id/intent_data_and_type" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/intent_callphone"
+            android:text="拨打10086" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="给10086发短信"
+            android:id="@+id/intent_message" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发送彩信"
+            android:id="@+id/intent_color_message" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开浏览器"
+            android:id="@+id/intent_browser" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发邮件"
+            android:id="@+id/intent_mail" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开地图"
+            android:id="@+id/intent_map" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="打开摄像头拍照"
+            android:id="@+id/intent_shoot" />
     </LinearLayout>
 </ScrollView>
